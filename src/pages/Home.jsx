@@ -1,9 +1,28 @@
 // src/pages/Home.js
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, Sparkles, Heart, Zap, Trophy, Star, ArrowRight, Quote, Camera, GraduationCap } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, Sparkles, Heart, Zap, Trophy, Star, ArrowRight, Quote, Camera, GraduationCap, Lightbulb } from 'lucide-react';
 import { Phone } from 'lucide-react';
 
 export default function Home() {
+    // Light mode state with localStorage persistence
+    const [isLightMode, setIsLightMode] = useState(() => {
+      if (typeof window !== 'undefined') {
+        return localStorage.getItem('theme') === 'light';
+      }
+      return false;
+    });
+
+    // Apply theme on mount and when it changes
+    useEffect(() => {
+      if (isLightMode) {
+        document.documentElement.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.remove('light-mode');
+        localStorage.setItem('theme', 'dark');
+      }
+    }, [isLightMode]);
+
     // Scroll to top on page load
     useEffect(() => {
       window.scrollTo(0, 0);
@@ -39,6 +58,17 @@ export default function Home() {
         icon: <Mail size={22} className="text-slate-400 hover:text-pink-400 transition-colors" />, 
         external: false,
         spacing: 'mr-2' // Example: left margin
+      },
+      {
+        href: null,
+        label: 'Toggle Light Mode',
+        icon: <Lightbulb size={22} className={`transition-colors ${isLightMode ? 'text-yellow-400 fill-yellow-400' : 'text-slate-400 hover:text-yellow-400'}`} />,
+        external: false,
+        spacing: '',
+        onClick: (e) => {
+          e.preventDefault();
+          setIsLightMode(prev => !prev);
+        }
       }
     ];
   const [visibleSections, setVisibleSections] = useState({});
@@ -180,14 +210,23 @@ export default function Home() {
       link: null,
     },
     {
-      title: 'Caryl Joy Cabrera',
+      title: 'Caryl\'s Portfolio',
       description: 'A modern portfolio featuring custom animations, responsive design, and a showcase of projects, skills, and achievements.',
       tech: ['React', 'Tailwind CSS', 'JavaScript'],
       type: 'Personal Portfolio Website',
       status: 'Completed',
       image: '/images/project3.png',
-      link: 'https://caryljoycabrera.vercel.app'
+      link: 'https://carylcabrera.vercel.app'
     },
+    {
+      title: 'Google Flights Mobile App',
+      description: 'A mobile app prototype for Google Flights, focusing on user-friendly flight search, booking, seat selection, and payment features with passenger approval and list.',
+      tech: ['Figma'],
+      type: 'Mobile App Design',
+      status: 'Completed',
+      image: '/images/project6.png',
+      link: 'https://www.figma.com/proto/G6SmUceq9KK46PYzCGMJzz/Google-Flights?node-id=2-140&p=f&t=grTawYpATDk9AJFF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2'
+    }
   ];
 
   const awards = [
@@ -292,7 +331,7 @@ export default function Home() {
     <>
       {/* Unique minimalist header */}
       <header className="fixed top-0 left-0 w-full z-30 flex justify-end px-4 md:px-8 py-2 md:py-4 pointer-events-none">
-        <nav className="flex items-center bg-slate-950/80 rounded-full shadow-lg px-2 md:px-4 py-1 md:py-2 pointer-events-auto" style={{ maxWidth: 320 }}>
+        <nav className={`flex items-center rounded-full shadow-lg px-2 md:px-4 py-1 md:py-2 pointer-events-auto ${isLightMode ? 'bg-slate-100/90 shadow-slate-300' : 'bg-slate-950/80'}`} style={{ maxWidth: 340 }}>
           {headerLinks.map((link, idx) => {
             const commonProps = {
               key: idx,
@@ -325,9 +364,24 @@ export default function Home() {
           })}
         </nav>
       </header>
-      <div className="bg-slate-950 text-slate-100 min-h-screen relative overflow-hidden w-full" style={{ userSelect: 'none' }}>
-      {/* Custom CSS for animations */}
+      <div className={`min-h-screen relative overflow-hidden w-full transition-colors duration-300 ${isLightMode ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'}`} style={{ userSelect: 'none' }}>
+      {/* Custom CSS for animations and full-viewport background */}
       <style>{`
+        html, body {
+          min-width: 100vw;
+          min-height: 100vh;
+          width: 100vw;
+          height: 100vh;
+          background: #0f172a !important; /* Tailwind's bg-slate-950 */
+          overflow-x: hidden;
+          transition: background 0.3s ease;
+        }
+        html.light-mode, html.light-mode body {
+          background: #f8fafc !important; /* Tailwind's slate-50 */
+        }
+        #root {
+          min-height: 100vh;
+        }
         html {
           scroll-behavior: smooth;
         }
@@ -432,6 +486,131 @@ export default function Home() {
         .arsenica-antiqua {
           font-family: 'Arsenica Antiqua', serif !important;
         }
+        
+        /* Light mode styles */
+        html.light-mode, html.light-mode body {
+          background: #f8fafc !important; /* Tailwind's slate-50 */
+        }
+        html.light-mode .bg-slate-950 {
+          background: #f8fafc !important;
+          color: #1e293b !important;
+        }
+        html.light-mode .text-slate-100 {
+          color: #0f172a !important;
+        }
+        html.light-mode .text-slate-200 {
+          color: #1e293b !important;
+        }
+        html.light-mode .text-slate-300 {
+          color: #334155 !important;
+        }
+        html.light-mode .text-slate-400 {
+          color: #475569 !important;
+        }
+        html.light-mode .text-slate-500 {
+          color: #64748b !important;
+        }
+        html.light-mode .text-slate-600 {
+          color: #475569 !important;
+        }
+        html.light-mode .text-slate-700 {
+          color: #334155 !important;
+        }
+        html.light-mode .bg-slate-900\\/50,
+        html.light-mode .bg-slate-900\\/80 {
+          background: rgba(241, 245, 249, 0.9) !important;
+          border-color: #cbd5e1 !important;
+        }
+        html.light-mode .bg-slate-950\\/80 {
+          background: rgba(241, 245, 249, 0.95) !important;
+        }
+        html.light-mode .bg-slate-900\\/40 {
+          background: rgba(241, 245, 249, 0.7) !important;
+        }
+        html.light-mode .border-slate-800 {
+          border-color: #cbd5e1 !important;
+        }
+        html.light-mode .border-slate-900 {
+          border-color: #e2e8f0 !important;
+        }
+        html.light-mode .border-slate-700 {
+          border-color: #cbd5e1 !important;
+        }
+        html.light-mode .bg-slate-800\\/50 {
+          background: rgba(226, 232, 240, 0.7) !important;
+        }
+        html.light-mode .bg-slate-800 {
+          background: #e2e8f0 !important;
+        }
+        html.light-mode .shimmer-text {
+          background: linear-gradient(90deg, #db2777, #9333ea, #2563eb, #9333ea, #db2777);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        html.light-mode .bg-pink-500\\/10,
+        html.light-mode .bg-purple-500\\/10,
+        html.light-mode .bg-blue-500\\/10 {
+          opacity: 0.7;
+        }
+        /* Light mode gradient backgrounds */
+        html.light-mode .from-pink-600\\/20,
+        html.light-mode .to-purple-600\\/20 {
+          --tw-gradient-from: rgba(219, 39, 119, 0.15);
+          --tw-gradient-to: rgba(147, 51, 234, 0.15);
+        }
+        html.light-mode .from-pink-900\\/10,
+        html.light-mode .via-purple-900\\/10,
+        html.light-mode .to-blue-900\\/10 {
+          background: linear-gradient(to right, rgba(219, 39, 119, 0.08), rgba(147, 51, 234, 0.08), rgba(37, 99, 235, 0.08)) !important;
+        }
+        html.light-mode .from-blue-900\\/20,
+        html.light-mode .to-purple-900\\/20 {
+          background: linear-gradient(to right, rgba(37, 99, 235, 0.1), rgba(147, 51, 234, 0.1)) !important;
+        }
+        html.light-mode .from-yellow-600\\/20,
+        html.light-mode .to-orange-600\\/20 {
+          background: linear-gradient(to bottom right, rgba(202, 138, 4, 0.15), rgba(234, 88, 12, 0.15)) !important;
+        }
+        html.light-mode .from-pink-600\\/10,
+        html.light-mode .to-purple-600\\/10 {
+          background: linear-gradient(to right, rgba(219, 39, 119, 0.08), rgba(147, 51, 234, 0.08)) !important;
+        }
+        /* Light mode photo placeholder */
+        html.light-mode .photo-placeholder {
+          background: linear-gradient(135deg, rgba(219, 39, 119, 0.08) 0%, rgba(147, 51, 234, 0.08) 100%);
+          border-color: rgba(219, 39, 119, 0.25);
+        }
+        /* Light mode border glow */
+        html.light-mode .border-glow {
+          border-color: rgba(219, 39, 119, 0.4) !important;
+        }
+        /* Light mode status badges */
+        html.light-mode .bg-green-500\\/20 {
+          background: rgba(34, 197, 94, 0.15) !important;
+        }
+        html.light-mode .bg-yellow-500\\/20 {
+          background: rgba(234, 179, 8, 0.15) !important;
+        }
+        /* Light mode footer text */
+        html.light-mode .border-pink-800\\/30 {
+          border-color: rgba(219, 39, 119, 0.2) !important;
+        }
+        html.light-mode .border-pink-500\\/20 {
+          border-color: rgba(219, 39, 119, 0.25) !important;
+        }
+        html.light-mode .border-blue-500\\/20 {
+          border-color: rgba(37, 99, 235, 0.25) !important;
+        }
+        /* Light mode invert for dark icons */
+        html.light-mode .invert {
+          filter: invert(0) !important;
+        }
+        /* Keep white text on specific buttons */
+        html.light-mode .keep-white-text {
+          color: white !important;
+        }
       `}</style>
 
       {/* Ripple effects */}
@@ -508,7 +687,8 @@ export default function Home() {
       </div>
 
       {/* Ambient background orbs */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+      {/* Ambient background orbs - always cover viewport */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ minWidth: '100vw', minHeight: '100vh', zIndex: 0 }}>
         <div 
           className="absolute w-96 h-96 bg-pink-500/10 rounded-full blur-3xl glow"
           style={{ top: '10%', left: '10%' }}
@@ -609,7 +789,7 @@ export default function Home() {
           <div className={`w-full opacity-0 mb-6 sm:mb-8 ${heroTextVisible ? 'slide-up' : ''}`} style={{ animationDelay: '0.6s' }}>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-2 sm:mb-0 w-full">
               <a href="mailto:caryldcabrera@gmail.com" 
-                 className="group px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 rounded-lg transition-all duration-300 font-medium flex items-center gap-2 shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 w-full sm:w-auto">
+                 className="group px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 rounded-lg transition-all duration-300 font-medium flex items-center gap-2 shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 w-full sm:w-auto keep-white-text">
                 <Mail size={18} />
                 Tell me your story
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -684,7 +864,7 @@ export default function Home() {
               </p>
               <p>
                 I develop outputs that make an impact. Led student groups that delivered results.
-                Balanced freelance work with academics and extra-curricular activities while being a <span className="text-purple-400 font-semibold">Student Assistant</span>.
+                Balanced freelance work with academics and extra-curricular activities while being a <span className="text-purple-400 font-semibold">Student Assistant</span> and <span className="text-purple-400 font-semibold">Class Representative</span>.
                 My work is a reflection of my commitment.
               </p>
               {/* Quick facts grid (below about content) */}
@@ -1084,7 +1264,7 @@ export default function Home() {
           {/* Contact buttons */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
             <a href="mailto:caryldcabrera@gmail.com" 
-               className="group px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 rounded-xl transition-all duration-300 font-medium text-lg shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 flex items-center gap-2">
+               className="group px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 rounded-xl transition-all duration-300 font-medium text-lg shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 flex items-center gap-2 keep-white-text">
               <Mail size={20} />
               caryldcabrera@gmail.com
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
