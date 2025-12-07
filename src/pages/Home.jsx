@@ -201,15 +201,6 @@ export default function Home() {
       github: null,
     },
     {
-      title: 'Project Name Here',
-      description: 'Brief description of what this project does and the problem it solves.',
-      tech: ['React', 'Node.js', 'MongoDB'],
-      type: 'Web Application',
-      status: 'In Development',
-      image: null,
-      link: null,
-    },
-    {
       title: 'Caryl\'s Portfolio',
       description: 'A modern portfolio featuring custom animations, responsive design, and a showcase of projects, skills, and achievements.',
       tech: ['React', 'Tailwind CSS', 'JavaScript'],
