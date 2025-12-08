@@ -674,6 +674,123 @@ export default function Home() {
         html.light-mode .keep-white-text {
           color: white !important;
         }
+        /* Light mode project cards - Apple liquid glass design */
+        html.light-mode .group.bg-slate-900\\/50.backdrop-blur {
+          background: linear-gradient(135deg, rgba(241, 245, 249, 0.8) 0%, rgba(226, 232, 240, 0.6) 50%, rgba(241, 245, 249, 0.7) 100%) !important;
+          backdrop-filter: blur(24px) saturate(180%) !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.08),
+            0 2px 16px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.05) !important;
+          position: relative !important;
+        }
+        html.light-mode .group.bg-slate-900\\/50.backdrop-blur::before {
+          content: '' !important;
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.02) 100%) !important;
+          border-radius: inherit !important;
+          pointer-events: none !important;
+        }
+        html.light-mode .group.bg-slate-900\\/50.backdrop-blur:hover {
+          background: linear-gradient(135deg, rgba(241, 245, 249, 0.9) 0%, rgba(226, 232, 240, 0.75) 50%, rgba(241, 245, 249, 0.85) 100%) !important;
+          backdrop-filter: blur(28px) saturate(200%) !important;
+          border-color: rgba(236, 72, 153, 0.4) !important;
+          box-shadow: 
+            0 16px 48px rgba(0, 0, 0, 0.12),
+            0 4px 24px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.03),
+            0 0 0 1px rgba(236, 72, 153, 0.1) !important;
+          transform: translateY(-2px) !important;
+        }
+        html.light-mode .group.bg-slate-900\\/50.backdrop-blur:hover::before {
+          background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, transparent 40%, transparent 60%, rgba(0, 0, 0, 0.01) 100%) !important;
+        }
+        /* Light mode quick facts cards - liquid glass effect */
+        html.light-mode .bg-slate-900\\/50.backdrop-blur:not(.group) {
+          background: linear-gradient(135deg, rgba(241, 245, 249, 0.75) 0%, rgba(226, 232, 240, 0.55) 50%, rgba(241, 245, 249, 0.65) 100%) !important;
+          backdrop-filter: blur(20px) saturate(160%) !important;
+          border: 1px solid rgba(255, 255, 255, 0.15) !important;
+          box-shadow: 
+            0 6px 24px rgba(0, 0, 0, 0.06),
+            0 1px 8px rgba(0, 0, 0, 0.03),
+            inset 0 1px 0 rgba(255, 255, 255, 0.7),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.04) !important;
+        }
+        html.light-mode .bg-slate-900\\/50.backdrop-blur:not(.group):hover {
+          background: linear-gradient(135deg, rgba(241, 245, 249, 0.85) 0%, rgba(226, 232, 240, 0.7) 50%, rgba(241, 245, 249, 0.8) 100%) !important;
+          backdrop-filter: blur(24px) saturate(180%) !important;
+          box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.08),
+            0 2px 12px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.03) !important;
+        }
+        /* Light mode photo placeholder - liquid glass effect */
+        html.light-mode .photo-placeholder {
+          background: linear-gradient(135deg, rgba(241, 245, 249, 0.7) 0%, rgba(226, 232, 240, 0.5) 50%, rgba(241, 245, 249, 0.6) 100%) !important;
+          backdrop-filter: blur(16px) saturate(140%) !important;
+          border-color: rgba(236, 72, 153, 0.4) !important;
+          box-shadow: 
+            0 4px 20px rgba(0, 0, 0, 0.05),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.03) !important;
+        }
+        /* Light mode value pills/tech badges - liquid glass effect */
+        html.light-mode .bg-slate-900\\/80 {
+          background: linear-gradient(135deg, rgba(241, 245, 249, 0.8) 0%, rgba(226, 232, 240, 0.7) 100%) !important;
+          backdrop-filter: blur(12px) saturate(120%) !important;
+          border-color: rgba(255, 255, 255, 0.2) !important;
+          box-shadow: 
+            0 2px 12px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+        }
+        html.light-mode .bg-slate-900\\/80:hover {
+          background: linear-gradient(135deg, rgba(241, 245, 249, 0.9) 0%, rgba(226, 232, 240, 0.85) 100%) !important;
+          backdrop-filter: blur(16px) saturate(140%) !important;
+          box-shadow: 
+            0 4px 16px rgba(0, 0, 0, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+        }
+        /* Light mode tooltips - subtle glass effect */
+        html.light-mode .bg-slate-800 {
+          background: rgba(241, 245, 249, 0.95) !important;
+          backdrop-filter: blur(8px) !important;
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+        }
+        /* Light mode colored text improvements */
+        html.light-mode .text-pink-400 {
+          color: #be185d !important; /* Darker pink for better contrast */
+        }
+        html.light-mode .text-purple-400 {
+          color: #7c3aed !important; /* Darker purple for better contrast */
+        }
+        html.light-mode .text-blue-400 {
+          color: #1d4ed8 !important; /* Darker blue for better contrast */
+        }
+        html.light-mode .text-green-400 {
+          color: #15803d !important; /* Darker green for better contrast */
+        }
+        html.light-mode .text-yellow-400 {
+          color: #ca8a04 !important; /* Darker yellow for better contrast */
+        }
+        /* Light mode ripple effects - more visible borders */
+        html.light-mode .border-pink-400\\/40 {
+          border-color: rgba(236, 72, 153, 0.6) !important;
+        }
+        html.light-mode .border-purple-400\\/30 {
+          border-color: rgba(168, 85, 247, 0.5) !important;
+        }
+        html.light-mode .border-blue-400\\/20 {
+          border-color: rgba(59, 130, 246, 0.4) !important;
+        }
       `}</style>
 
       {/* Ripple effects */}
