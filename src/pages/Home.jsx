@@ -193,21 +193,79 @@ export default function Home() {
     {
       title: 'SCO Creative Optimization for Requests and Engagement System (S-CORE)',
       description: 'A centralized web-based system designed to automate service requests, approval workflows, and task monitoring with performance analytics.',
-      tech: ['Node.js', 'Express', 'MongoDB', 'EJS'],
+      tech: ['Node.js', 'Express', 'MongoDB', 'EJS', 'JavaScript', 'DigitalOcean'],
       type: 'Institutional Office Website',
       status: 'Completed',
+      year: '2025',
       image: '/images/project1.png',
       link: 'https://dlsuds-core.me',
-      github: null,
+      github: 'https://github.com/caryljoycabrera/S-CORE.git'
     },
     {
       title: 'Caryl\'s Portfolio',
-      description: 'A modern portfolio featuring custom animations, responsive design, and a showcase of projects, skills, and achievements.',
-      tech: ['React', 'Tailwind CSS', 'JavaScript'],
+      description: 'A modern portfolio featuring custom animations, responsive design, and a showcase of skills, projects, and achievements.',
+      tech: ['React', 'Tailwind CSS', 'JavaScript', 'Vercel'],
       type: 'Personal Portfolio Website',
       status: 'Completed',
+      year: '2025',
       image: '/images/project3.png',
-      link: 'https://carylcabrera.vercel.app'
+      link: null,
+      github: 'https://github.com/caryljoycabrera/devportfolio.git'
+    },
+    {
+      title: 'Foodpanda x Wendy\'s Mega Collaboration',
+      description: 'A themed kiosk ordering system for multiple food brands, featuring menu browsing, cart management, and order checkout functionalities.',
+      tech: ['Node.js', 'Express', 'EJS', 'JavaScript'],
+      type: 'Online Ordering Website',
+      status: 'Completed',
+      year: '2025',
+      image: '/images/project4.png',
+      link: null,
+      github: 'https://github.com/caryljoycabrera/Foodpanda-Wendys-Collab.git'
+    },
+    {
+      title: 'PBB Celebrity Edition: The Big Night',
+      description: 'An event registration system for reality TV show awarding event, allowing participants to register and manage their attendance seamlessly.',
+      tech: ['Google Apps Script', 'Google Sheets', 'JavaScript', 'GitHub Pages'],
+      type: 'Event Registration System',
+      status: 'Completed',
+      year: '2025',
+      image: '/images/project5.png',
+      link: 'https://caryljoycabrera.github.io/PBB-Big-Night/',
+      github: 'https://github.com/caryljoycabrera/PBB-Big-Night.git'
+    },
+    {
+      title: 'Purrfect Care',
+      description: 'A comprehensive pet shelter management system facilitating animal intake, adoption processes, donation records, and announcements.',
+      tech: ['ASP.NET', 'C#', 'MySQL', 'MVC Architecture'],
+      type: 'Pet Shelter Services Website',
+      status: 'Completed',
+      year: '2024 ',
+      image: '/images/project6.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'University Scholarship System',
+      description: 'A scholarship management system streamlining scholar monitoring and tuition deduction processes for the scholarship office of an institution.',
+      tech: ['ASP.NET', 'C#', 'MySQL', 'MVC Architecture'],
+      type: 'Scholarship Management Website',
+      status: 'Completed',
+      year: '2024',
+      image: '/images/project7.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Go Glow Grocery Mobile App',
+      description: 'A mobile app prototype for a grocery order calculator and receipt generator to assist in streamlining checkout processes, improving accuracy and efficiency for cashiers.',
+      tech: ['Android Studio', 'Java'],
+      type: 'Mobile App Design',
+      status: 'Completed',
+      year: '2024',
+      image: '/images/project8.png',
+      link: 'https://drive.google.com/file/d/1X7ukcjH0se3gr857oIqdLAgB_9SiKCJp/view?usp=sharing',
+      github: 'https://github.com/caryljoycabrera/GoGlowGrowceryApp.git'
     },
     {
       title: 'Google Flights Mobile App',
@@ -215,8 +273,10 @@ export default function Home() {
       tech: ['Figma'],
       type: 'Mobile App Design',
       status: 'Completed',
-      image: '/images/project6.png',
-      link: 'https://www.figma.com/proto/G6SmUceq9KK46PYzCGMJzz/Google-Flights?node-id=2-140&p=f&t=grTawYpATDk9AJFF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2'
+      year: '2023',
+      image: '/images/project9.png',
+      link: 'https://www.figma.com/proto/G6SmUceq9KK46PYzCGMJzz/Google-Flights?node-id=2-140&p=f&t=grTawYpATDk9AJFF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2',
+      github: null
     }
   ];
 
@@ -225,7 +285,7 @@ export default function Home() {
       title: 'Lider ng Taon',
       event: 'Luntiang Parangal',
       year: '2025',
-      description: 'Recognized for exceptional leadership in student council'
+      description: 'Received for exceptional leadership in the university'
     },
     {
       title: 'Opisyal ng Taon',
@@ -235,16 +295,22 @@ export default function Home() {
     },
     {
       title: 'Best Project Head',
-      event: 'Council of Student Organizations Awarding',
+      event: 'CSO-RSO Night of Stars and Honors',
       year: '2025',
-      description: 'Led successful institutional events and initiatives'
+      description: 'Recognized for successful institutional events and initiatives'
     },
     {
       title: 'Outstanding Monitoring Executive Board',
-      event: 'Council of Student Organizations Awarding',
+      event: 'CSO-RSO Night of Stars and Honors',
       year: '2025',
       description: 'Excelled in oversight and support of student organizations'
     },
+    {
+      title: 'Excellence in Leadership',
+      event: 'Gawad Agham',
+      year: '2024',
+      description: 'Honored for exemplary leadership in college student government'
+    }
   ];
 
   const education = {
@@ -258,6 +324,12 @@ export default function Home() {
   };
 
   const certifications = [
+    {
+      title: 'Cyber Threat Management',
+      org: 'Cisco Networking Academy',
+      year: '2025',
+      icon: '⚔️'
+    },
     {
       title: 'IT Specialist – Databases',
       org: 'Certiport',
@@ -854,9 +926,14 @@ export default function Home() {
                 specializing in web development. But that title doesn't capture it all.
               </p>
               <p>
-                I develop outputs that make an impact. Led student groups that delivered results.
-                Balanced freelance work with academics and extra-curricular activities while being a <span className="text-purple-400 font-semibold">Student Assistant</span> and <span className="text-purple-400 font-semibold">Class Representative</span>.
-                My work is a reflection of my commitment.
+                I develop outputs that make an impact. I led student groups that delivered results.
+                I balanced freelance work with academics and extra-curricular activities while being a <span className="text-purple-400 font-semibold">student assistant</span> and <span className="text-purple-400 font-semibold">class representative</span>.
+                I wore multiple hats, and I thrived.
+              </p>
+              <p>
+                Beyond technical skills, I bring <span className="text-blue-400 font-semibold">perspective</span> and <span className="text-blue-400 font-semibold">connection</span> to the table.
+                Whether working with clients, leading teams, or engaging with users, I prioritize understanding needs and providing value.
+                I'm not just building projects; I'm building relationships.
               </p>
               {/* Quick facts grid (below about content) */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6">
@@ -1032,7 +1109,10 @@ export default function Home() {
                     }`}>
                       {project.status}
                     </span>
-                    <span className="text-xs text-slate-500">{project.type}</span>
+                    <div className="flex flex-col items-end gap-1">
+                      <span className="text-xs text-slate-500">{project.type}</span>
+                      <span className="text-xs text-slate-400 font-mono">{project.year}</span>
+                    </div>
                   </div>
                   
                   <h3 className="text-lg font-semibold text-slate-100 mb-2 group-hover:text-pink-400 transition-colors">
@@ -1054,7 +1134,7 @@ export default function Home() {
                     {project.link && (
                       <a href={project.link} target="_blank" rel="noopener noreferrer" 
                          className="text-sm text-pink-400 hover:text-pink-300 flex items-center gap-1">
-                        <ExternalLink size={14} /> Live
+                        <ExternalLink size={14} /> View
                       </a>
                     )}
                     {project.github && (
@@ -1062,9 +1142,6 @@ export default function Home() {
                          className="text-sm text-slate-400 hover:text-slate-300 flex items-center gap-1">
                         <Github size={14} /> Code
                       </a>
-                    )}
-                    {!project.link && !project.github && (
-                      <span className="text-sm text-slate-500 italic">Details coming soon</span>
                     )}
                   </div>
                 </div>
