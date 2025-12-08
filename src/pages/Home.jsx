@@ -343,7 +343,7 @@ export default function Home() {
       icon: '🔐'
     },
     {
-      title: 'TOEIC Global English (C2 Equivalent)',
+      title: 'TOEIC Global English (C1 Equivalent)',
       org: 'CEFR',
       year: '2024',
       icon: '🌐'
@@ -1064,7 +1064,7 @@ export default function Home() {
                 </div>
                 <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-blue-500/30 transition-all">
                   <span className="text-slate-500 text-xs uppercase tracking-wider">English Level</span>
-                  <p className="text-slate-200 font-medium">C2 (TOEIC)</p>
+                  <p className="text-slate-200 font-medium">C1 (TOEIC)</p>
                 </div>
                 <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-blue-500/30 transition-all">
                   <span className="text-slate-500 text-xs uppercase tracking-wider">Availability</span>
