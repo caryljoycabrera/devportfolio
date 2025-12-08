@@ -1136,6 +1136,34 @@ export default function Home() {
                 ))}
               </div>
             </div>
+
+            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-blue-500/30 transition-all">
+              <h3 className="text-blue-400 font-semibold mb-3 flex items-center gap-2">
+                <Code size={18} />
+                Emerging Technologies
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['Oracle Virtualbox', 'Kubernetes', 'Docker', 'Firebase', 'DigitalOcean', 'Vercel', 'SAP S/4HANA', 'GDevelop'].map(item => (
+                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-blue-500/30 transition-all">
+              <h3 className="text-blue-400 font-semibold mb-3 flex items-center gap-2">
+                <Sparkles size={18} />
+                Business and Design Tools
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['Microsoft Office 365', 'Google Workspace', 'Meta Business Suite', 'Canva', 'Adobe Creative Cloud', 'QuickBooks', 'WordPress', 'Wix', 'Notion'].map(item => (
+                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
