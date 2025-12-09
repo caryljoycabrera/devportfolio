@@ -343,8 +343,8 @@ export default function Home() {
       icon: '🔐'
     },
     {
-      title: 'TOEIC Global English (C1 Equivalent)',
-      org: 'CEFR',
+      title: 'Global English (Score: 980 | CEFR C1 Equivalent)',
+      org: 'TOEIC',
       year: '2024',
       icon: '🌐'
     },
@@ -926,14 +926,14 @@ export default function Home() {
           
           {/* Main name with gradient */}
           <h1
-            className={`text-5xl xs:text-6xl sm:text-7xl md:text-8xl font-bold mb-6 opacity-0 ${heroTextVisible ? 'slide-up stagger-2' : ''}`}
-            style={{ lineHeight: 1, paddingBottom: '0.15em', overflow: 'visible' }}
+            className={`text-6xl xs:text-7xl sm:text-8xl md:text-8xl font-bold mb-6 opacity-0 ${heroTextVisible ? 'slide-up stagger-2' : ''}`}
+            style={{ lineHeight: 1.1, paddingBottom: '0.2em', overflow: 'visible', marginBottom: '1rem' }}
           >
-            <span className="shimmer-text" style={{ lineHeight: 1, display: 'inline-block' }}>
+            <span className="shimmer-text" style={{ lineHeight: 1.1, display: 'inline-block' }}>
               Caryl Joy
             </span>
             <br />
-            <span className="text-slate-200">Cabrera</span>
+            <span className="text-slate-200" style={{ lineHeight: 1.1 }}>Cabrera</span>
           </h1>
           
           {/* Typing effect tagline */}
