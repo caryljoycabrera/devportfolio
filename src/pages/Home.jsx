@@ -277,6 +277,28 @@ export default function Home() {
       image: '/images/project9.png',
       link: 'https://www.figma.com/proto/G6SmUceq9KK46PYzCGMJzz/Google-Flights?node-id=2-140&p=f&t=grTawYpATDk9AJFF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2',
       github: null
+    },
+    {
+      title: 'Women in Tech Global Conference 2023',
+      description: 'A website for the Women in Tech Global Conference 2023, providing event details, program information, registration, partners, and contact functionalities.', 
+      tech: ['Wix'],
+      type: 'Event Website',
+      status: 'Completed',
+      year: '2022',
+      image: '/images/project10.png',
+      link: 'https://girlcodenetwork.wixsite.com/witg2023',
+      github: null
+    },
+    {
+      title: 'Realest and Deepest',
+      description: 'A group blog website focusing on personal development topics, featuring articles, resources, community engagement, and interactive elements.',
+      tech: ['Wix'],
+      type: 'Personal Development Blog Website',
+      status: 'Completed',
+      year: '2021',
+      image: '/images/project11.png',
+      link: 'https://realestanddeepest.wixsite.com/perdev',
+      github: null
     }
   ];
 
