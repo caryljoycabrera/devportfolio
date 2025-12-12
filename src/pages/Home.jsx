@@ -718,6 +718,18 @@ export default function Home() {
         html.light-mode .border-blue-500\\/20 {
           border-color: rgba(37, 99, 235, 0.25) !important;
         }
+        /* Prevent hero name descenders from being clipped on small screens */
+        @media (max-width: 640px) {
+          #hero h1.hero-name {
+            padding-bottom: 0.45em !important;
+            line-height: 1.12 !important;
+            overflow: visible !important;
+          }
+          /* Ensure the gradient span stays inline-block for consistent metrics */
+          #hero h1.hero-name .shimmer-text {
+            display: inline-block !important;
+          }
+        }
         /* Light mode invert for dark icons */
         html.light-mode .invert {
           filter: invert(0) !important;
@@ -978,8 +990,8 @@ export default function Home() {
           
           {/* Main name with gradient */}
           <h1
-            className={`text-6xl xs:text-7xl sm:text-8xl md:text-8xl font-bold mb-6 opacity-0 ${heroTextVisible ? 'slide-up stagger-2' : ''}`}
-            style={{ lineHeight: 1.1, paddingBottom: '0.2em', overflow: 'visible', marginBottom: '2rem' }}
+            className={`hero-name text-6xl xs:text-7xl sm:text-8xl md:text-8xl font-bold mb-6 opacity-0 ${heroTextVisible ? 'slide-up stagger-2' : ''}`}
+            style={{ lineHeight: 1.1, paddingBottom: '0.2em', overflow: 'visible', marginBottom: '1rem' }}
           >
             <span className="shimmer-text" style={{ lineHeight: 1.1, display: 'inline-block' }}>
               Caryl Joy
