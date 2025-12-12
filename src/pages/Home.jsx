@@ -730,6 +730,23 @@ export default function Home() {
             display: inline-block !important;
           }
         }
+        @media (max-width: 480px) {
+          #hero h1.hero-name {
+            padding-bottom: 0.8em !important;
+            margin-bottom: 1.5rem !important;
+            line-height: 1.14 !important;
+          }
+          /* give the hero container extra breathing room for safe areas */
+          #hero { padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); }
+        }
+        @media (max-width: 360px) {
+          #hero h1.hero-name {
+            padding-bottom: 1.05em !important;
+            margin-bottom: 1.75rem !important;
+            line-height: 1.16 !important;
+          }
+          #hero { padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)); }
+        }
         /* Light mode invert for dark icons */
         html.light-mode .invert {
           filter: invert(0) !important;
