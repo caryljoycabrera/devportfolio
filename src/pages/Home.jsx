@@ -979,7 +979,7 @@ export default function Home() {
           {/* Main name with gradient */}
           <h1
             className={`text-6xl xs:text-7xl sm:text-8xl md:text-8xl font-bold mb-6 opacity-0 ${heroTextVisible ? 'slide-up stagger-2' : ''}`}
-            style={{ lineHeight: 1.1, paddingBottom: '0.2em', overflow: 'visible', marginBottom: '1rem' }}
+            style={{ lineHeight: 1.1, paddingBottom: '0.2em', overflow: 'visible', marginBottom: '2rem' }}
           >
             <span className="shimmer-text" style={{ lineHeight: 1.1, display: 'inline-block' }}>
               Caryl Joy
