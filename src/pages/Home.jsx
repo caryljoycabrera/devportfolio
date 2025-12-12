@@ -719,15 +719,18 @@ export default function Home() {
           border-color: rgba(37, 99, 235, 0.25) !important;
         }
         /* Prevent hero name descenders from being clipped on small screens */
-        @media (max-width: 640px) {
+        /* More generous spacing for a range of small screens to avoid clipping */
+        @media (max-width: 820px) {
           #hero h1.hero-name {
-            padding-bottom: 0.45em !important;
-            line-height: 1.12 !important;
+            padding-bottom: 0.7em !important;
+            line-height: 1.18 !important;
             overflow: visible !important;
+            margin-bottom: 1.05rem !important;
           }
-          /* Ensure the gradient span stays inline-block for consistent metrics */
+          /* Keep the gradient span inline-block and add slight bottom padding */
           #hero h1.hero-name .shimmer-text {
             display: inline-block !important;
+            padding-bottom: 0.22em !important;
           }
         }
         /* Light mode invert for dark icons */
