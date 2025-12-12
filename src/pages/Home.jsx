@@ -730,32 +730,6 @@ export default function Home() {
             display: inline-block !important;
           }
         }
-        /* Extra small phone adjustments to protect descenders (only affects hero first line) */
-        @media (max-width: 480px) {
-          #hero h1.hero-name .shimmer-text {
-            display: block !important;
-            padding-bottom: 0.32em !important;
-            line-height: 1.14 !important;
-          }
-        }
-        @media (max-width: 360px) {
-          #hero h1.hero-name .shimmer-text {
-            display: block !important;
-            padding-bottom: 0.42em !important;
-            line-height: 1.16 !important;
-          }
-        }
-        /* Add extra safe-area and bottom padding on very small devices and nudge text down slightly */
-        @media (max-width: 520px) {
-          #hero {
-            padding-bottom: calc(env(safe-area-inset-bottom, 12px) + 32px) !important;
-          }
-          #hero h1.hero-name {
-            margin-bottom: 1.25rem !important;
-            padding-bottom: 0.6em !important;
-            transform: translateY(2px);
-          }
-        }
         /* Light mode invert for dark icons */
         html.light-mode .invert {
           filter: invert(0) !important;
