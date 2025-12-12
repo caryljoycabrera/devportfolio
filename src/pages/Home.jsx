@@ -74,7 +74,7 @@ export default function Home() {
   const [visibleSections, setVisibleSections] = useState({});
   const [heroTextVisible, setHeroTextVisible] = useState(false);
   const [typedText, setTypedText] = useState('');
-  const [pageReady, setPageReady] = useState(false);
+  const [nameLoaded, setNameLoaded] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [ripples, setRipples] = useState([]);
   const particlesRef = useRef([]);
@@ -122,23 +122,6 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  // When hero text becomes visible, wait for fonts (if any) and paint, then reveal page
-  useEffect(() => {
-    if (!heroTextVisible) return;
-    const reveal = async () => {
-      try {
-        if (document.fonts && document.fonts.ready) {
-          await document.fonts.ready;
-        }
-      } catch (e) {
-        // ignore
-      }
-      // wait a frame so paint happens
-      requestAnimationFrame(() => requestAnimationFrame(() => setPageReady(true)));
-    };
-    reveal();
-  }, [heroTextVisible]);
-
   // Intersection observer for scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -177,6 +160,35 @@ export default function Home() {
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Wait until the main name node is present/has text, then reveal page
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const checkName = () => {
+      const nameEl = document.querySelector('#hero h1 .shimmer-text');
+      return nameEl && nameEl.textContent && nameEl.textContent.trim().length > 0;
+    };
+    if (checkName()) {
+      setNameLoaded(true);
+      return;
+    }
+    const hero = document.getElementById('hero') || document.body;
+    const observer = new MutationObserver(() => {
+      if (checkName()) {
+        setNameLoaded(true);
+        observer.disconnect();
+      }
+    });
+    observer.observe(hero, { childList: true, subtree: true, characterData: true });
+    const timeout = setTimeout(() => {
+      if (!nameLoaded) setNameLoaded(true);
+      observer.disconnect();
+    }, 3000);
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeout);
+    };
   }, []);
 
   // Tech stack with logo URLs (ordered and expanded)
@@ -467,14 +479,15 @@ export default function Home() {
           })}
         </nav>
       </header>
-      <div className={`min-h-screen relative overflow-hidden w-full transition-colors duration-300 ${isLightMode ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'}`} style={{ userSelect: 'none' }}>
+      <div className={`min-h-screen relative overflow-x-hidden w-full transition-colors duration-300 ${isLightMode ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'}`} style={{ userSelect: 'none' }}>
       {/* Custom CSS for animations and full-viewport background */}
       <style>{`
         html, body {
-          min-width: 100%;
-          min-height: 100%;
-          width: auto;
-          height: auto;
+          min-width: 100vw;
+          min-height: 100vh;
+          width: 100vw;
+          height: 100vh;
+          background: #0f172a !important; /* Tailwind's bg-slate-950 */
           overflow-x: hidden;
           transition: background 0.3s ease;
         }
@@ -543,10 +556,6 @@ export default function Home() {
         @keyframes textReveal {
           from { clip-path: inset(0 100% 0 0); }
           to { clip-path: inset(0 0% 0 0); }
-        }
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
         }
         @keyframes borderGlow {
           0%, 100% { border-color: rgba(236, 72, 153, 0.3); }
@@ -837,15 +846,6 @@ export default function Home() {
       `}</style>
 
       {/* Ripple effects */}
-      {/* Loading overlay: hide entire page until hero name is ready */}
-      {!pageReady && (
-        <div className={`fixed inset-0 z-[9999] flex items-center justify-center ${isLightMode ? 'bg-slate-50' : 'bg-slate-950'}`}>
-          <div className="flex flex-col items-center gap-4">
-            <div style={{ width: 64, height: 64, border: '6px solid rgba(255,255,255,0.08)', borderTop: `6px solid ${isLightMode ? '#ec4899' : '#ec4899'}`, borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
-            <div className={`text-sm ${isLightMode ? 'text-slate-900' : 'text-slate-200'}`}>Loading…</div>
-          </div>
-        </div>
-      )}
       {ripples.map(ripple => (
         <div
           key={ripple.id}
@@ -969,7 +969,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 py-16 sm:py-20">
+      <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 py-16 sm:py-20 overflow-visible">
         <div className="max-w-5xl w-full mx-auto">
           {/* Location tag */}
           <div className={`mb-6 opacity-0 ${heroTextVisible ? 'slide-up stagger-1' : ''}`}>
@@ -978,8 +978,8 @@ export default function Home() {
           
           {/* Main name with gradient */}
           <h1
-            className={`text-4xl sm:text-6xl md:text-8xl lg:text-8xl font-bold mb-6 opacity-0 ${heroTextVisible ? 'slide-up stagger-2' : ''}`}
-            style={{ lineHeight: 1.1, paddingBottom: '0.2em', overflow: 'visible', marginBottom: '1rem', fontSize: 'clamp(2.75rem, 9vw, 6rem)', overflowWrap: 'break-word' }}
+            className={`text-6xl xs:text-7xl sm:text-8xl md:text-8xl font-bold mb-6 opacity-0 ${heroTextVisible ? 'slide-up stagger-2' : ''}`}
+            style={{ lineHeight: 1.1, paddingBottom: '0.2em', overflow: 'visible', marginBottom: '1rem' }}
           >
             <span className="shimmer-text" style={{ lineHeight: 1.1, display: 'inline-block' }}>
               Caryl Joy
