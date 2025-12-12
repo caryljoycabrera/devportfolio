@@ -745,6 +745,17 @@ export default function Home() {
             line-height: 1.16 !important;
           }
         }
+        /* Add extra safe-area and bottom padding on very small devices and nudge text down slightly */
+        @media (max-width: 520px) {
+          #hero {
+            padding-bottom: calc(env(safe-area-inset-bottom, 12px) + 32px) !important;
+          }
+          #hero h1.hero-name {
+            margin-bottom: 1.25rem !important;
+            padding-bottom: 0.6em !important;
+            transform: translateY(2px);
+          }
+        }
         /* Light mode invert for dark icons */
         html.light-mode .invert {
           filter: invert(0) !important;
