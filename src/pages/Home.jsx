@@ -1457,7 +1457,7 @@ export default function Home() {
         <div className={`max-w-5xl mx-auto ${sectionClass('experience')}`}> 
           <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
             <span className="text-pink-400 font-mono text-lg">07.</span>
-            <span>My Background</span>
+            <span>Experience</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
 
@@ -1526,467 +1526,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-16 sm:py-24 px-4 sm:px-6 relative">
-        <div className={`max-w-5xl mx-auto ${sectionClass('services')}`}>
-          <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">08.</span>
-            <span>Services I Offer</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
-          </h2>
-          <p className="text-slate-400 mb-12 max-w-2xl">
-            Comprehensive solutions tailored to your business needs.
-          </p>
-
-          {/* Service Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {[
-              {
-                title: 'Web Development',
-                description: 'Full-stack development with modern frameworks and best practices.',
-                icon: <Code className="text-pink-400" size={32} />,
-                features: ['React & Node.js', 'Responsive Design', 'Database Integration']
-              },
-              {
-                title: 'Web Design & UI',
-                description: 'Beautiful, user-centered interfaces that engage and convert.',
-                icon: <Sparkles className="text-purple-400" size={32} />,
-                features: ['Figma Prototypes', 'UX Research', 'Design Systems']
-              },
-              {
-                title: 'Technical Writing',
-                description: 'Clear documentation and content creation for technical audiences.',
-                icon: <Quote className="text-blue-400" size={32} />,
-                features: ['API Docs', 'Guides & Tutorials', 'Content Strategy']
-              },
-              {
-                title: 'Project Management',
-                description: 'Strategic planning and execution of complex initiatives.',
-                icon: <Zap className="text-yellow-400" size={32} />,
-                features: ['Agile Methodology', 'Timeline Management', 'Stakeholder Coordination']
-              },
-              {
-                title: 'Tutoring & Training',
-                description: 'One-on-one guidance for learning technical skills and concepts.',
-                icon: <GraduationCap className="text-green-400" size={32} />,
-                features: ['Code Mentoring', 'Concept Clarity', 'Hands-on Projects']
-              },
-              {
-                title: 'Consultation',
-                description: 'Strategic advice on technology choices and business optimization.',
-                icon: <Lightbulb className="text-orange-400" size={32} />,
-                features: ['Tech Stack Selection', 'Architecture Planning', 'Growth Strategy']
-              }
-            ].map((service, idx) => (
-              <div 
-                key={idx}
-                className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-pink-500/30 transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="mb-4 p-3 bg-slate-800/50 rounded-lg w-fit group-hover:bg-slate-800 transition-colors">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-slate-100 mb-2 group-hover:text-pink-400 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-slate-400 text-sm mb-4">
-                  {service.description}
-                </p>
-                <div className="space-y-2">
-                  {service.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-2 text-slate-300 text-xs">
-                      <span className="text-pink-400">▸</span>
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+      {/* Contact / Footer Section */}
+      <footer id="contact" className="py-16 sm:py-24 px-4 sm:px-6 border-t border-slate-900 relative">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Personal closing statement */}
+          <div className="mb-12">
+            <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold mb-6">
+              <span className="shimmer-text arsenica-antiqua">Let's Create Something Unforgettable</span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+              I'm open to internships, freelance projects, and collaborations. 
+              If you're working on something that needs <span className="text-pink-400">strategy</span>, 
+              <span className="text-purple-400"> creativity</span>, and a <span className="text-blue-400">meaningful approach</span>, I'd love to be part of it.
+            </p>
           </div>
-
-          {/* Process Workflow */}
-          <div className="mb-12 bg-gradient-to-r from-pink-900/10 via-purple-900/10 to-blue-900/10 border border-pink-800/30 rounded-xl p-8">
-            <h3 className="text-2xl font-semibold mb-8 text-pink-400 text-center">My Process</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              {[
-                { step: 1, title: 'Consultation', desc: 'Understand your goals and requirements' },
-                { step: 2, title: 'Planning', desc: 'Create strategy and technical roadmap' },
-                { step: 3, title: 'Design & Build', desc: 'Develop solutions with quality focus' },
-                { step: 4, title: 'Delivery', desc: 'Deploy and provide ongoing support' }
-              ].map((item, idx) => (
-                <div key={idx} className="text-center">
-                  <div className="flex justify-center mb-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 flex items-center justify-center text-white font-bold">
-                      {item.step}
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-slate-200 mb-2">{item.title}</h4>
-                  <p className="text-slate-400 text-sm">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Testimonials Section */}
-          <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-8">
-            <h3 className="text-2xl font-semibold mb-8 text-center text-purple-400">What People Say</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                {
-                  quote: 'Caryl transformed our request management system with her innovative approach and attention to detail.',
-                  author: 'Strategic Communications Office, DLSU-D',
-                  role: 'Client'
-                },
-                {
-                  quote: 'Outstanding leadership and dedication. She consistently goes above and beyond expectations.',
-                  author: 'Student Organization Leaders',
-                  role: 'Colleagues'
-                }
-              ].map((testimonial, idx) => (
-                <div key={idx} className="border-l-4 border-pink-500 pl-4">
-                  <p className="text-slate-300 italic mb-3">"{testimonial.quote}"</p>
-                  <p className="text-slate-200 font-semibold">{testimonial.author}</p>
-                  <p className="text-slate-500 text-sm">{testimonial.role}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced Resume/CV Section */}
-      <section id="resume" className="py-16 sm:py-24 px-4 sm:px-6 relative">
-        <div className={`max-w-5xl mx-auto ${sectionClass('resume')}`}>
-          <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">09.</span>
-            <span>Resume & CV</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
-          </h2>
-          <p className="text-slate-400 mb-12 max-w-2xl">
-            Professional qualifications and comprehensive career overview.
-          </p>
-
-          {/* Download Resume Button - Prominent */}
-          <div className="flex justify-center mb-12">
-            <a 
-              href="/files/CabreraCarylJoy_Resume.pdf"
-              download
-              className="group px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 flex items-center gap-3 keep-white-text"
-            >
-              <Star size={20} className="group-hover:rotate-180 transition-transform duration-300" />
-              Download Resume (PDF)
-              <ExternalLink size={18} className="group-hover:-translate-y-1 transition-transform" />
+          
+          {/* Contact buttons */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
+            <a href="mailto:caryldcabrera@gmail.com" 
+               className="group px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 rounded-xl transition-all duration-300 font-medium text-lg shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 flex items-center gap-2 keep-white-text">
+              <Mail size={20} />
+              caryldcabrera@gmail.com
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
 
-          {/* Professional Summary */}
-          <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-8 mb-8">
-            <h3 className="text-2xl font-semibold text-pink-400 mb-4 flex items-center gap-2">
-              <Star size={24} />
-              Professional Summary
-            </h3>
-            <p className="text-slate-300 leading-relaxed text-lg">
-              Results-driven IT professional with a strong foundation in full-stack web development and proven leadership experience.
-              Specialized in designing and implementing scalable solutions while excelling in team collaboration and project management.
-              Demonstrated expertise in translating business requirements into technical implementations, with a commitment to quality,
-              innovation, and continuous improvement. Seeking opportunities to contribute technical excellence and strategic thinking to
-              impact-driven organizations.
+          {/* Social links */}
+          <div className="flex justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
+            <a href="https://linkedin.com/in/caryljoycabrera" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-pink-500/50 hover:bg-pink-500/5 transition-all group">
+              <Linkedin size={24} className="text-slate-400 group-hover:text-pink-400 transition-colors" />
+            </a>
+            <a href="https://github.com/caryljoycabrera" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-purple-500/50 hover:bg-purple-500/5 transition-all group">
+              <Github size={24} className="text-slate-400 group-hover:text-purple-400 transition-colors" />
+            </a>
+          </div>
+
+          {/* Footer note */}
+          <div className="pt-6 sm:pt-8 border-t border-slate-900">
+            <p className="text-slate-600 text-sm mb-2">
+              Designed with the heart.
             </p>
-          </div>
-
-          {/* Core Competencies */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6">
-              <h4 className="text-lg font-semibold text-pink-400 mb-4">Core Competencies</h4>
-              <div className="space-y-2 text-slate-300">
-                {['Full-Stack Web Development', 'MERN Stack Development', 'Database Design & Management', 'RESTful API Development', 'Project Leadership', 'Agile Methodology'].map((comp, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <span className="text-pink-400">✓</span>
-                    {comp}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6">
-              <h4 className="text-lg font-semibold text-purple-400 mb-4">Technical Skills</h4>
-              <div className="space-y-2 text-slate-300">
-                {['JavaScript/TypeScript', 'React, Node.js, Express', 'MongoDB, MySQL', 'HTML5, CSS3, Tailwind CSS', 'Git, GitHub', 'Figma, Adobe Creative Cloud'].map((skill, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <span className="text-purple-400">✓</span>
-                    {skill}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Certifications Highlight */}
-          <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/20 rounded-xl p-6 mb-8">
-            <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
-              <GraduationCap size={20} />
-              Key Certifications
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {['Cyber Threat Management (Cisco)', 'IT Specialist - Databases (Certiport)', 'Global English C1 (TOEIC)', 'PCAP: Python (OpenEDG)'].map((cert, i) => (
-                <div key={i} className="flex items-center gap-2 text-slate-300">
-                  <span className="text-blue-400">★</span>
-                  {cert}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Awards & Recognition */}
-          <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6">
-            <h4 className="text-lg font-semibold text-yellow-400 mb-4 flex items-center gap-2">
-              <Trophy size={20} />
-              Notable Achievements
-            </h4>
-            <ul className="space-y-3 text-slate-300">
-              <li className="flex items-start gap-3">
-                <span className="text-yellow-400 mt-1">◆</span>
-                <span><strong>Lider ng Taon & Opisyal ng Taon</strong> - Luntiang Parangal 2025</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-yellow-400 mt-1">◆</span>
-                <span><strong>Best Project Head</strong> - CSO-RSO Night of Stars 2025</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-yellow-400 mt-1">◆</span>
-                <span><strong>Excellence in Leadership</strong> - Gawad Agham 2024</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-yellow-400 mt-1">◆</span>
-                <span><strong>Multiple Dean's Lister</strong> - Consistent academic excellence</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Expanded Contact Section */}
-      <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 relative">
-        <div className={`max-w-5xl mx-auto ${sectionClass('contact')}`}>
-          <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">10.</span>
-            <span>Get In Touch</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
-          </h2>
-          <p className="text-slate-400 mb-12 max-w-2xl">
-            Let's start a conversation. Whether you have a project in mind or just want to chat, I'm here to listen.
-          </p>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            {/* Direct Contact Info */}
-            <div className="space-y-6">
-              <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-pink-500/30 transition-all">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-gradient-to-br from-pink-600/20 to-pink-600/10 rounded-lg">
-                    <Mail className="text-pink-400" size={28} />
-                  </div>
-                  <div>
-                    <h4 className="text-slate-200 font-semibold mb-1">Email</h4>
-                    <a href="mailto:caryldcabrera@gmail.com" className="text-pink-400 hover:text-pink-300 transition-colors">
-                      caryldcabrera@gmail.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-purple-500/30 transition-all">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-gradient-to-br from-purple-600/20 to-purple-600/10 rounded-lg">
-                    <Phone className="text-purple-400" size={28} />
-                  </div>
-                  <div>
-                    <h4 className="text-slate-200 font-semibold mb-1">Phone</h4>
-                    <a href="tel:+63" className="text-purple-400 hover:text-purple-300 transition-colors">
-                      Available upon request
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-blue-500/30 transition-all">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-gradient-to-br from-blue-600/20 to-blue-600/10 rounded-lg">
-                    <Code className="text-blue-400" size={28} />
-                  </div>
-                  <div>
-                    <h4 className="text-slate-200 font-semibold mb-1">Location</h4>
-                    <p className="text-blue-400">Cavite, Philippines</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Social Media Links */}
-              <div className="bg-gradient-to-r from-pink-900/10 via-purple-900/10 to-blue-900/10 border border-pink-800/30 rounded-xl p-6">
-                <h4 className="text-slate-200 font-semibold mb-4">Connect With Me</h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <a href="https://linkedin.com/in/caryljoycabrera" 
-                     target="_blank" 
-                     rel="noopener noreferrer"
-                     className="flex items-center gap-2 px-4 py-2 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-pink-500/50 hover:bg-pink-500/5 transition-all group">
-                    <Linkedin size={18} className="text-slate-400 group-hover:text-pink-400 transition-colors" />
-                    <span className="text-slate-300 text-sm group-hover:text-slate-100 transition-colors">LinkedIn</span>
-                  </a>
-                  <a href="https://github.com/caryljoycabrera" 
-                     target="_blank" 
-                     rel="noopener noreferrer"
-                     className="flex items-center gap-2 px-4 py-2 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-purple-500/50 hover:bg-purple-500/5 transition-all group">
-                    <Github size={18} className="text-slate-400 group-hover:text-purple-400 transition-colors" />
-                    <span className="text-slate-300 text-sm group-hover:text-slate-100 transition-colors">GitHub</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-8">
-              <h3 className="text-2xl font-semibold text-slate-100 mb-6">Send me a Message</h3>
-              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Thank you for reaching out! I\'ll get back to you soon.'); e.target.reset(); }}>
-                <div>
-                  <label htmlFor="name" className="block text-slate-300 text-sm font-medium mb-2">Your Name *</label>
-                  <input 
-                    type="text" 
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-pink-500 transition-colors"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-slate-300 text-sm font-medium mb-2">Your Email *</label>
-                  <input 
-                    type="email" 
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-pink-500 transition-colors"
-                    placeholder="john@example.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-slate-300 text-sm font-medium mb-2">Subject *</label>
-                  <input 
-                    type="text" 
-                    id="subject"
-                    name="subject"
-                    required
-                    className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-pink-500 transition-colors"
-                    placeholder="Project Inquiry"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-slate-300 text-sm font-medium mb-2">Message *</label>
-                  <textarea 
-                    id="message"
-                    name="message"
-                    required
-                    rows="5"
-                    className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-pink-500 transition-colors resize-none"
-                    placeholder="Tell me about your project..."
-                  />
-                </div>
-                <button 
-                  type="submit"
-                  className="w-full px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 rounded-lg transition-all duration-300 font-semibold text-white shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 flex items-center justify-center gap-2"
-                >
-                  Send Message
-                  <ArrowRight size={16} />
-                </button>
-              </form>
-            </div>
-          </div>
-
-          {/* Map Embed Option - Note about location */}
-          <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden">
-            <iframe
-              title="Google Map Cavite"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15447.96496402444!2d120.9364542!3d14.2827271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d3c2e2e2e2e3%3A0x9e2e2e2e2e2e2e2e!2sCavite%2C%20Philippines!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph"
-              width="100%"
-              height="350"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full aspect-video min-h-[300px]"
-            ></iframe>
-            <div className="p-4 text-center">
-              <p className="text-slate-400 mb-2">Based in Cavite, Philippines</p>
-              <p className="text-slate-500 text-sm">Available for remote work and local collaborations</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-16 sm:py-20 px-4 sm:px-6 border-t border-slate-900 relative bg-slate-950/50">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            {/* Brand */}
-            <div>
-              <h3 className="text-pink-400 font-bold text-lg mb-4">Caryl Joy</h3>
-              <p className="text-slate-400 text-sm">Crafting digital solutions with intention and purpose.</p>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-slate-200 font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-slate-400 text-sm">
-                <li><a href="#about" className="hover:text-pink-400 transition-colors">About</a></li>
-                <li><a href="#projects" className="hover:text-pink-400 transition-colors">Projects</a></li>
-                <li><a href="#services" className="hover:text-pink-400 transition-colors">Services</a></li>
-                <li><a href="#resume" className="hover:text-pink-400 transition-colors">Resume</a></li>
-              </ul>
-            </div>
-
-            {/* Resources */}
-            <div>
-              <h4 className="text-slate-200 font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2 text-slate-400 text-sm">
-                <li><a href="/files/CabreraCarylJoy_Resume.pdf" className="hover:text-pink-400 transition-colors">Download Resume</a></li>
-                <li><a href="https://github.com/caryljoycabrera" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition-colors">GitHub</a></li>
-                <li><a href="https://linkedin.com/in/caryljoycabrera" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition-colors">LinkedIn</a></li>
-                <li><a href="mailto:caryldcabrera@gmail.com" className="hover:text-pink-400 transition-colors">Email</a></li>
-              </ul>
-            </div>
-
-            {/* Social */}
-            <div>
-              <h4 className="text-slate-200 font-semibold mb-4">Let's Connect</h4>
-              <div className="flex gap-3">
-                <a href="https://linkedin.com/in/caryljoycabrera" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   className="p-2 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-pink-500/50 hover:bg-pink-500/5 transition-all group">
-                  <Linkedin size={18} className="text-slate-400 group-hover:text-pink-400 transition-colors" />
-                </a>
-                <a href="https://github.com/caryljoycabrera" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   className="p-2 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-purple-500/50 hover:bg-purple-500/5 transition-all group">
-                  <Github size={18} className="text-slate-400 group-hover:text-purple-400 transition-colors" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer Divider */}
-          <div className="border-t border-slate-900 pt-6 sm:pt-8">
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-              <div className="text-center sm:text-left">
-                <p className="text-slate-600 text-sm mb-1">
-                  © {new Date().getFullYear()} Caryl Joy Cabrera. All rights reserved.
-                </p>
-                <p className="text-slate-700 text-xs">
-                  Designed with intention. Built with care.
-                </p>
-              </div>
-              <div className="flex gap-4 text-slate-500 text-xs">
-                <a href="#hero" className="hover:text-pink-400 transition-colors">Back to Top</a>
-              </div>
-            </div>
+            <p className="text-slate-700 text-sm">
+              © {new Date().getFullYear()} Caryl Joy Cabrera
+            </p>
           </div>
         </div>
       </footer>
