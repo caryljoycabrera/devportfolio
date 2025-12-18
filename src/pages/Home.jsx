@@ -132,7 +132,7 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0, rootMargin: '0px 0px 0px 0px' }
     );
 
     document.querySelectorAll('section[id]').forEach((section) => {
@@ -193,11 +193,21 @@ export default function Home() {
 
   // Tech stack with logo URLs (ordered and expanded)
   const techStack = [
+    { name: 'Microsoft 365', icon: '/images/microsoft365.svg' },
+    { name: 'Google Workspace', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg' },
+    { name: 'Meta Business Suite', icon: 'https://cdn.simpleicons.org/meta' },
+    { name: 'Canva', icon: '/images/canva.svg' },
+    { name: 'Adobe Creative Cloud', icon: 'https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg' },
+    { name: 'Wix', icon: 'https://cdn.simpleicons.org/wix' },
+    { name: 'WordPress', icon: 'https://cdn.simpleicons.org/wordpress' },
+    { name: 'Notion', icon: 'https://cdn.simpleicons.org/notion', invert: true },
+    { name: 'QuickBooks', icon: 'https://cdn.simpleicons.org/quickbooks' },
     { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
     { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
     { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
     { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
     { name: 'Express', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', invert: true },
+    { name: 'EJS', icon: 'https://cdn.simpleicons.org/ejs' },
     { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
     { name: 'ASP.NET', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg' },
     { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
@@ -213,10 +223,16 @@ export default function Home() {
     { name: 'Visual Studio Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
     { name: 'Visual Studio', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg' },
     { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
-    { name: 'Android Studio', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg' },
+    { name: 'Android Studio', icon: '/images/androidstudio.svg' },
     { name: 'Apache NetBeans', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netbeans/netbeans-original.svg' },
     { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', invert: true },
-    { name: 'Google Apps Script', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg' }
+    { name: 'Oracle VirtualBox', icon: 'https://cdn.simpleicons.org/virtualbox' },
+    { name: 'Google Apps Script', icon: '/images/appsscript.svg' },
+    { name: 'Firebase', icon: 'https://cdn.simpleicons.org/firebase' },
+    { name: 'SAP S/4 HANA', icon: 'https://cdn.simpleicons.org/sap' },
+    { name: 'Kubernetes', icon: 'https://cdn.simpleicons.org/kubernetes' },
+    { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker' },
+    { name: 'DigitalOcean', icon: 'https://cdn.simpleicons.org/digitalocean' }
   ];
 
   const projects = [
@@ -230,6 +246,17 @@ export default function Home() {
       image: '/images/project1.png',
       link: 'https://dlsuds-core.me',
       github: 'https://github.com/caryljoycabrera/S-CORE.git'
+    },
+    {
+      title: 'CareSync: A Mobile Solution for Elderly Medication Adherence',
+      description: 'A mobile application that assists elderly individuals and their caregiversin managing their medication schedules through notification reminders, alarms, and tracking.',
+      tech: ['Flutter', 'Dart', 'Firebase'],
+      type: 'Mobile App',
+      status: 'Completed',
+      year: '2025',
+      image: '/images/project2.png',
+      link: null,
+      github: 'https://github.com/carebear1919/caresync_mobileapplication.git'
     },
     {
       title: 'Caryl\'s Portfolio',
@@ -440,7 +467,7 @@ export default function Home() {
 
   // Animation helper
   const sectionClass = (id) => 
-    `transition-all duration-1000 ${visibleSections[id] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
+    `transition-all duration-1000 ${visibleSections[id] ? 'opacity-100 translate-y-0' : 'opacity-0 sm:translate-y-8'}`;
 
   return (
     <>
@@ -1203,34 +1230,6 @@ export default function Home() {
                 ))}
               </div>
             </div>
-
-            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-blue-500/30 transition-all">
-              <h3 className="text-blue-400 font-semibold mb-3 flex items-center gap-2">
-                <Code size={18} />
-                Emerging Technologies
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['Oracle Virtualbox', 'Kubernetes', 'Docker', 'Firebase', 'DigitalOcean', 'Vercel', 'SAP S/4HANA', 'GDevelop'].map(item => (
-                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-blue-500/30 transition-all">
-              <h3 className="text-blue-400 font-semibold mb-3 flex items-center gap-2">
-                <Sparkles size={18} />
-                Business and Design Tools
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['Microsoft Office 365', 'Google Workspace', 'Meta Business Suite', 'Canva', 'Adobe Creative Cloud', 'QuickBooks', 'WordPress', 'Wix', 'Notion'].map(item => (
-                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -1287,7 +1286,7 @@ export default function Home() {
         <div className={`max-w-5xl mx-auto ${sectionClass('projects')}`}> 
           <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
             <span className="text-pink-400 font-mono text-lg">04.</span>
-            <span>What I've Built</span>
+            <span>Projects</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
           <p className="text-slate-400 mb-12 max-w-2xl">
