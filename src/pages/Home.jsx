@@ -253,7 +253,7 @@ export default function Home() {
       title: 'CareSync: A Mobile Solution for Elderly Medication Adherence',
       description: 'A mobile application that assists elderly individuals and their caregiversin managing their medication schedules through notification reminders, alarms, and tracking.',
       tech: ['Flutter', 'Dart', 'Firebase'],
-      type: 'Mobile App',
+      type: 'Elderly Care Mobile App',
       status: 'Completed',
       year: '2025',
       image: '/images/project2.png',
