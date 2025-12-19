@@ -15,3 +15,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.arsenica-antiqua {
+  /* Use fallback stack until the custom font is ready */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  transition: color .12s ease, opacity .12s ease;
+}
+
+/* Apply the custom font only once fonts are loaded to avoid repeated swaps */
+.fonts-ready .arsenica-antiqua {
+  font-family: 'Arsenica Antiqua', serif;
+}
+
+/* Font is preloaded via public/index.html to avoid build-time resolution issues */
+
+/* Reserve scrollbar space and force a persistent vertical scrollbar to prevent header layout shifts */
+html {
+  scrollbar-gutter: stable; /* reserve gutter in supporting browsers */
+  overflow-y: scroll; /* always show vertical scrollbar space */
+}

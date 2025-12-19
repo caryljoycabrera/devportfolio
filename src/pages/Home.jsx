@@ -1,16 +1,16 @@
 // src/pages/Home.js
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, Sparkles, Heart, Zap, Trophy, Star, ArrowRight, Quote, Camera, GraduationCap, Lightbulb } from 'lucide-react';
-import { Phone } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, Sparkles, Heart, Zap, Trophy, Star, ArrowRight, Camera, GraduationCap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
     // Light mode state with localStorage persistence
-    const [isLightMode, setIsLightMode] = useState(() => {
+    const isLightMode = (() => {
       if (typeof window !== 'undefined') {
         return localStorage.getItem('theme') === 'light';
       }
       return false;
-    });
+    })();
 
     // Apply theme on mount and when it changes
     useEffect(() => {
@@ -23,54 +23,55 @@ export default function Home() {
       }
     }, [isLightMode]);
 
+    // Active tab for projects
+    const [activeTab, setActiveTab] = useState('Technical Solutions');
+
     // Scroll to top on page load
     useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
-    // Header icons with individual spacing (add 'spacing' property)
-    const headerLinks = [
-      {
-        href: null, // We'll use onClick for smooth scroll
-        label: 'Home',
-        icon: (
-          <img src="/logo.svg" alt="Logo" className="w-9 h-9 hover:scale-110 transition-transform" />
-        ),
-        external: false,
-        spacing: 'mr-2', // Example: right margin
-        onClick: (e) => {
-          e.preventDefault();
-          const hero = document.getElementById('hero');
-          if (hero) {
-            hero.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      },
-      {
-        href: 'https://linkedin.com/in/caryljoycabrera',
-        label: 'LinkedIn',
-        icon: <Linkedin size={22} className="text-slate-400 hover:text-pink-400 transition-colors" />, 
-        external: true,
-        spacing: 'mr-3' // Example: horizontal margin
-      },
-      {
-        href: 'mailto:caryldcabrera@gmail.com',
-        label: 'Email',
-        icon: <Mail size={22} className="text-slate-400 hover:text-pink-400 transition-colors" />, 
-        external: false,
-        spacing: 'mr-2' // Example: left margin
-      },
-      {
-        href: null,
-        label: 'Toggle Light Mode',
-        icon: <Lightbulb size={22} className={`transition-colors ${isLightMode ? 'text-yellow-400 fill-yellow-400' : 'text-slate-400 hover:text-yellow-400'}`} />,
-        external: false,
-        spacing: '',
-        onClick: (e) => {
-          e.preventDefault();
-          setIsLightMode(prev => !prev);
-        }
+  // Disable browser zoom (pinch/trackpad, Ctrl/Cmd zoom, gesture) and set viewport
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const viewport = document.querySelector('meta[name="viewport"]');
+    const originalContent = viewport ? viewport.getAttribute('content') : null;
+    let createdMeta = null;
+    if (viewport) {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no');
+    } else {
+      createdMeta = document.createElement('meta');
+      createdMeta.name = 'viewport';
+      createdMeta.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no';
+      document.head.appendChild(createdMeta);
+    }
+
+    const wheelHandler = (e) => {
+      if (e.ctrlKey || e.metaKey) e.preventDefault();
+    };
+    const keyHandler = (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
+        e.preventDefault();
       }
-    ];
+    };
+    const gestureHandler = (e) => e.preventDefault();
+
+    window.addEventListener('wheel', wheelHandler, { passive: false });
+    window.addEventListener('keydown', keyHandler, { passive: false });
+    window.addEventListener('gesturestart', gestureHandler);
+    window.addEventListener('gesturechange', gestureHandler);
+
+    return () => {
+      if (viewport) {
+        if (originalContent !== null) viewport.setAttribute('content', originalContent);
+      } else if (createdMeta) {
+        createdMeta.remove();
+      }
+      window.removeEventListener('wheel', wheelHandler);
+      window.removeEventListener('keydown', keyHandler);
+      window.removeEventListener('gesturestart', gestureHandler);
+      window.removeEventListener('gesturechange', gestureHandler);
+    };
+  }, []);
   const [visibleSections, setVisibleSections] = useState({});
   const [heroTextVisible, setHeroTextVisible] = useState(false);
   const [typedText, setTypedText] = useState('');
@@ -245,7 +246,8 @@ export default function Home() {
       year: '2025',
       image: '/images/project1.png',
       link: 'https://dlsuds-core.me',
-      github: 'https://github.com/caryljoycabrera/S-CORE.git'
+      github: 'https://github.com/caryljoycabrera/S-CORE.git',
+      category: 'Technical Solutions'
     },
     {
       title: 'CareSync: A Mobile Solution for Elderly Medication Adherence',
@@ -255,8 +257,9 @@ export default function Home() {
       status: 'Completed',
       year: '2025',
       image: '/images/project2.png',
-      link: null,
-      github: 'https://github.com/carebear1919/caresync_mobileapplication.git'
+      link: 'https://www.canva.com/design/DAG7Rbsj_4A/T5gF6Goj8S9RJR_8D67L3w/view?utm_content=DAG7Rbsj_4A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utm_id=h9a52723737',
+      github: 'https://github.com/carebear1919/caresync_mobileapplication.git',
+      category: 'Technical Solutions'
     },
     {
       title: 'Caryl\'s Portfolio',
@@ -267,7 +270,8 @@ export default function Home() {
       year: '2025',
       image: '/images/project3.png',
       link: null,
-      github: 'https://github.com/caryljoycabrera/devportfolio.git'
+      github: 'https://github.com/caryljoycabrera/devportfolio.git',
+      category: 'Technical Solutions'
     },
     {
       title: 'Foodpanda x Wendy\'s Mega Collaboration',
@@ -278,7 +282,8 @@ export default function Home() {
       year: '2025',
       image: '/images/project4.png',
       link: null,
-      github: 'https://github.com/caryljoycabrera/Foodpanda-Wendys-Collab.git'
+      github: 'https://github.com/caryljoycabrera/Foodpanda-Wendys-Collab.git',
+      category: 'Technical Solutions'
     },
     {
       title: 'PBB Celebrity Edition: The Big Night',
@@ -289,7 +294,8 @@ export default function Home() {
       year: '2025',
       image: '/images/project5.png',
       link: 'https://caryljoycabrera.github.io/PBB-Big-Night/',
-      github: 'https://github.com/caryljoycabrera/PBB-Big-Night.git'
+      github: 'https://github.com/caryljoycabrera/PBB-Big-Night.git',
+      category: 'Technical Solutions'
     },
     {
       title: 'Purrfect Care',
@@ -300,7 +306,8 @@ export default function Home() {
       year: '2024 ',
       image: '/images/project6.png',
       link: null,
-      github: null
+      github: null,
+      category: 'Technical Solutions'
     },
     {
       title: 'University Scholarship System',
@@ -311,7 +318,8 @@ export default function Home() {
       year: '2024',
       image: '/images/project7.png',
       link: null,
-      github: null
+      github: null,
+      category: 'Technical Solutions'
     },
     {
       title: 'Go Glow Grocery Mobile App',
@@ -322,7 +330,8 @@ export default function Home() {
       year: '2024',
       image: '/images/project8.png',
       link: 'https://drive.google.com/file/d/1X7ukcjH0se3gr857oIqdLAgB_9SiKCJp/view?usp=sharing',
-      github: 'https://github.com/caryljoycabrera/GoGlowGrowceryApp.git'
+      github: 'https://github.com/caryljoycabrera/GoGlowGrowceryApp.git',
+      category: 'Technical Solutions'
     },
     {
       title: 'Google Flights Mobile App',
@@ -333,7 +342,8 @@ export default function Home() {
       year: '2023',
       image: '/images/project9.png',
       link: 'https://www.figma.com/proto/G6SmUceq9KK46PYzCGMJzz/Google-Flights?node-id=2-140&p=f&t=grTawYpATDk9AJFF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2',
-      github: null
+      github: null,
+      category: 'Technical Solutions'
     },
     {
       title: 'Women in Tech Global Conference 2023',
@@ -344,7 +354,8 @@ export default function Home() {
       year: '2022',
       image: '/images/project10.png',
       link: 'https://girlcodenetwork.wixsite.com/witg2023',
-      github: null
+      github: null,
+      category: 'Technical Solutions'
     },
     {
       title: 'Realest and Deepest',
@@ -355,7 +366,8 @@ export default function Home() {
       year: '2021',
       image: '/images/project11.png',
       link: 'https://realestanddeepest.wixsite.com/perdev',
-      github: null
+      github: null,
+      category: 'Technical Solutions'
     }
   ];
 
@@ -471,49 +483,12 @@ export default function Home() {
 
   return (
     <>
-      {/* Unique minimalist header */}
-      <header className="fixed top-0 left-0 w-full z-30 flex justify-end px-4 md:px-8 py-2 md:py-4 pointer-events-none">
-        <nav className={`flex items-center rounded-full shadow-lg px-2 md:px-4 py-1 md:py-2 pointer-events-auto ${isLightMode ? 'bg-slate-100/90 shadow-slate-300' : 'bg-slate-950/80'}`} style={{ maxWidth: 340 }}>
-          {headerLinks.map((link, idx) => {
-            const commonProps = {
-              key: idx,
-              'aria-label': link.label,
-              className: `hover:scale-110 active:scale-95 transition-transform ${link.spacing || ''}`,
-              style: { display: 'flex', alignItems: 'center' },
-              onClick: link.onClick || undefined
-            };
-            if (link.href) {
-              return (
-                <a
-                  {...commonProps}
-                  href={link.href}
-                  target={link.external ? '_blank' : undefined}
-                  rel={link.external ? 'noopener noreferrer' : undefined}
-                >
-                  {link.icon}
-                </a>
-              );
-            } else {
-              return (
-                <a
-                  {...commonProps}
-                  href="#"
-                >
-                  {link.icon}
-                </a>
-              );
-            }
-          })}
-        </nav>
-      </header>
       <div className={`min-h-screen relative overflow-x-hidden w-full transition-colors duration-300 ${isLightMode ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'}`} style={{ userSelect: 'none' }}>
       {/* Custom CSS for animations and full-viewport background */}
       <style>{`
         html, body {
           min-width: 100vw;
           min-height: 100vh;
-          width: 100vw;
-          height: 100vh;
           background: #0f172a !important; /* Tailwind's bg-slate-950 */
           overflow-x: hidden;
           transition: background 0.3s ease;
@@ -600,6 +575,13 @@ export default function Home() {
           -webkit-text-fill-color: transparent;
           animation: shimmer 12s linear infinite;
         }
+        .static-shimmer-text {
+          background: linear-gradient(90deg, #ec4899, #a855f7, #3b82f6, #a855f7, #ec4899);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
         .border-glow { animation: borderGlow 3s ease-in-out infinite; }
         .stagger-1 { animation-delay: 0.1s; }
         .stagger-2 { animation-delay: 0.2s; }
@@ -685,6 +667,13 @@ export default function Home() {
           background: #e2e8f0 !important;
         }
         html.light-mode .shimmer-text {
+          background: linear-gradient(90deg, #db2777, #9333ea, #2563eb, #9333ea, #db2777);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        html.light-mode .static-shimmer-text {
           background: linear-gradient(90deg, #db2777, #9333ea, #2563eb, #9333ea, #db2777);
           background-size: 200% auto;
           -webkit-background-clip: text;
@@ -1109,7 +1098,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section with Photo Placeholder */}
+      {/* About Section */}
       <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('about')}`}> 
           <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
@@ -1117,9 +1106,7 @@ export default function Home() {
             <span>Who I Am</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
-          {/* About content only, no photo */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
-            {/* Photo placeholder (centered) */}
             <div className="flex justify-center items-center mb-6 md:mb-0 md:col-span-1">
               <div className="w-56 h-72 xs:w-64 xs:h-80 sm:w-80 sm:h-96 md:w-96 md:h-[28rem] rounded-2xl photo-placeholder flex items-center justify-center border-2 border-dashed border-pink-400/30 bg-slate-900/40 relative overflow-hidden mx-auto">
                 <img 
@@ -1179,7 +1166,7 @@ export default function Home() {
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
           <p className="text-slate-400 mb-12 max-w-2xl">
-            Tools and technologies I've worked with across projects.
+            A diverse kit of skills, tools, and technologies that I leverage to bring ideas to life.
           </p>
 
           {/* Tech icons grid */}
@@ -1290,16 +1277,32 @@ export default function Home() {
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
           <p className="text-slate-400 mb-12 max-w-2xl">
-            From deployed systems to personal experiments, these are projects that challenged me and taught me something new.
+            Exploring my multifaceted journey through innovation across various domains.
           </p>
 
+          <div className="flex space-x-4 mb-8">
+            {['Technical Solutions', 'Community Leadership', 'Creative Outputs'].map(tab => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 py-2 rounded transition-colors ${
+                  activeTab === tab 
+                    ? 'bg-pink-500 text-white' 
+                    : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {projects.map((project, idx) => (
+            {projects.filter(project => project.category === activeTab).slice(0, 6).map((project, idx) => (
               <div 
                 key={idx} 
                 className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-2"
               >
-                {/* Project image placeholder */}
+                {/* Project image */}
                 <div className="photo-placeholder aspect-video flex items-center justify-center group-hover:border-pink-500/50 transition-all">
                   {project.image ? (
                     <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
@@ -1335,7 +1338,7 @@ export default function Home() {
                   
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.tech.map((t, i) => (
-                      <span key={i} className="text-xs px-2 py-1 bg-slate-800/50 text-slate-400 rounded">
+                      <span key={i} className="text-xs px-2 py-1 bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 text-slate-400 rounded-full">
                         {t}
                       </span>
                     ))}
@@ -1360,9 +1363,12 @@ export default function Home() {
             ))}
           </div>
 
-          {/* More projects teaser */}
+          {/* View All Projects button */}
           <div className="mt-10 text-center">
-            <p className="text-slate-500 mb-4">More projects in the works...</p>
+            <Link to="/projects" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 rounded-lg transition-all duration-300 font-medium shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 keep-white-text">
+              View All Projects
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>
@@ -1438,7 +1444,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          {/* Moments to Remember - Photo Placeholders */}
+          {/* Moments to Remember */}
           <div className="mt-12">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {[1,2,3,4].map((num) => (
@@ -1569,7 +1575,7 @@ export default function Home() {
           {/* Footer note */}
           <div className="pt-6 sm:pt-8 border-t border-slate-900">
             <p className="text-slate-600 text-sm mb-2">
-              Designed with the heart.
+              Designed with the heart. Built with React.
             </p>
             <p className="text-slate-700 text-sm">
               © {new Date().getFullYear()} Caryl Joy Cabrera

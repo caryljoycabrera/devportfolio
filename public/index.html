@@ -25,8 +25,48 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Caryl's Portfolio</title>
+    <link rel="preload" href="%PUBLIC_URL%/fonts/ArsenicaAntiqua.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="%PUBLIC_URL%/logo.svg" as="image" type="image/svg+xml">
+    <style>
+      @font-face {
+        font-family: 'Arsenica Antiqua';
+        src: url('%PUBLIC_URL%/fonts/ArsenicaAntiqua.ttf') format('truetype');
+        /* Use optional to avoid forcing a late swap and reduce flicker */
+        font-display: optional;
+      }
+      /* Critical background placeholder to paint before React mounts */
+      .bg-placeholder{position:fixed;inset:0;z-index:0;pointer-events:none;/* subtle layered gradients */background: radial-gradient(circle at 10% 20%, rgba(236,72,153,0.08) 0%, transparent 25%), radial-gradient(circle at 80% 40%, rgba(168,85,247,0.06) 0%, transparent 30%), linear-gradient(180deg,#0f172a 0%, #020617 100%);transition:opacity .6s ease,visibility .6s ease;opacity:1}
+      .bg-loaded .bg-placeholder{opacity:0;visibility:hidden}
+      /* ensure the React root renders above the placeholder */
+      #root{position:relative;z-index:10}
+    </style>
+    <script>
+      (function(){
+        try {
+          // Don't programmatically load the font with FontFace (that forces a late swap).
+          // Rely on the @font-face rule + preload and the browser's font loading hints.
+          if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function(){
+              document.documentElement.classList.add('fonts-ready');
+              document.documentElement.classList.add('bg-loaded');
+            }).catch(function(){
+              document.documentElement.classList.add('fonts-ready');
+              document.documentElement.classList.add('bg-loaded');
+            });
+          } else {
+            // If the Font Loading API isn't available, mark as ready so UI shows.
+            document.documentElement.classList.add('fonts-ready');
+            document.documentElement.classList.add('bg-loaded');
+          }
+        } catch (e) {
+          document.documentElement.classList.add('fonts-ready');
+          document.documentElement.classList.add('bg-loaded');
+        }
+      })();
+    </script>
   </head>
   <body>
+    <div class="bg-placeholder" aria-hidden="true"></div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
