@@ -1666,30 +1666,102 @@ export default function Home() {
 
           {/* Leadership highlight */}
           <div className="mt-8 sm:mt-12 p-4 sm:p-6 bg-gradient-to-r from-pink-900/10 via-purple-900/10 to-blue-900/10 border border-pink-800/30 rounded-xl">
-            <h3 className="text-lg font-semibold mb-4 text-pink-400 flex items-center gap-2">
+            <h3 className="text-lg font-semibold mb-6 text-pink-400 flex items-center gap-2">
               <Zap size={20} />
-              Leadership Experience
+              Leadership Experience Highlights (2022 - 2025)
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <div className="space-y-3">
-                <p className="text-slate-300 flex items-start gap-2">
-                  <span className="text-pink-400 mt-1.5">▸</span>
-                  College Student Government Vice Governor
-                </p>
-                <p className="text-slate-300 flex items-start gap-2">
-                  <span className="text-pink-400 mt-1.5">▸</span>
-                  Council of Student Organizations Associate Executive Director
-                </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Column 1: CSG and CSA */}
+              <div className="space-y-4">
+                <div>
+                  <h4 className="text-slate-200 font-semibold mb-2">College Student Government</h4>
+                  <ul className="space-y-1 text-slate-300 text-sm">
+                    <li className="flex items-center gap-2">
+                      <span className="text-pink-400">•</span>
+                      Vice Governor
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-pink-400">•</span>
+                      Legislative Councilor
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-pink-400">•</span>
+                      Logistics Committee
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-slate-200 font-semibold mb-2">Circle of Student Assistants</h4>
+                  <ul className="space-y-1 text-slate-300 text-sm">
+                    <li className="flex items-center gap-2">
+                      <span className="text-pink-400">•</span>
+                      Director for External Affairs
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-pink-400">•</span>
+                      Junior Officer for Business Manager
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-pink-400">•</span>
+                      Sponsorship and Partnership Committee
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div className="space-y-3">
-                <p className="text-slate-300 flex items-start gap-2">
-                  <span className="text-purple-400 mt-1.5">▸</span>
-                  Spearheaded events, programs, and legislations
-                </p>
-                <p className="text-slate-300 flex items-start gap-2">
-                  <span className="text-purple-400 mt-1.5">▸</span>
-                  Secured partnerships and sponsorships
-                </p>
+              {/* Column 2: COSA, SINAG, TIPH */}
+              <div className="space-y-4">
+                <div>
+                  <h4 className="text-slate-200 font-semibold mb-2">Council of Student Organizations</h4>
+                  <ul className="space-y-1 text-slate-300 text-sm">
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-400">•</span>
+                      Associate Executive Director
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-400">•</span>
+                      Director for Spiritual Activities
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-400">•</span>
+                      Internal Affairs Executive Committee
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-slate-200 font-semibold mb-2">SINAG Society of Leaders</h4>
+                  <ul className="space-y-1 text-slate-300 text-sm">
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-400">•</span>
+                      Junior Officer for Communications
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              {/* Column 3: Key Achievements */}
+              <div>
+                <h4 className="text-slate-200 font-semibold mb-4">Key Achievements</h4>
+                <ul className="space-y-3 text-slate-300 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-400 mt-0.5">•</span>
+                    Spearheaded events, programs, and legislations
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-400 mt-0.5">•</span>
+                    Secured partnerships and sponsorships
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-400 mt-0.5">•</span>
+                    Organized workshops and training sessions
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-400 mt-0.5">•</span>
+                    Contributed to initiatives and advocacy campaigns
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-400 mt-0.5">•</span>
+                    Coordinated with cross-functional teams
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
