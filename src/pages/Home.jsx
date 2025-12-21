@@ -368,6 +368,79 @@ export default function Home() {
       link: 'https://realestanddeepest.wixsite.com/perdev',
       github: null,
       category: 'Technical Solutions'
+    },
+    ,
+    {
+      title: 'Disciplines of Social Sciences Infographic',
+      description: 'An infographic that illustrates the various disciplines within the social sciences field, highlighting their key areas of study and contributions to understanding human behavior and society.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co10.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Parola Zine Cover Design',
+      description: 'A sample cover design for Parola, a zine publication from a non-profit organization that showcases creative works and stories.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co9.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Evolution of Media Infographic',
+      description: 'An infographic that illustrates the evolution of media from traditional forms to digital platforms.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co8.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Netiquette Infographic',
+      description: 'An infographic that outlines the rules and guidelines for proper online behavior and communication.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co7.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Improving Learning Infographic',
+      description: 'An infographic that provides tips and strategies for improving learning and study habits.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co6.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Types of Intelligence Infographic',
+      description: 'An infographic that illustrates the different types of intelligence.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co5.png',
+      link: null,
+      github: null
     }
   ];
 
