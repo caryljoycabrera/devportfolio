@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, ExternalLink, Linkedin, Mail, ArrowRight, Camera, X, ZoomIn } from 'lucide-react';
+import { Github, ExternalLink, Linkedin, Mail, ArrowRight, Camera, X, ZoomIn, Sparkles } from 'lucide-react';
 
 export default function Projects() {
   const isLightMode = (() => {
@@ -348,13 +348,68 @@ export default function Projects() {
       github: null
     },
     {
+      title: 'Talino at Talento: Unleashing the Potential of Young Minds',
+      description: 'A community development initiative in partnership with Burol 1, designed to empower underprivileged youth through educational workshops, interactive games, and cultural tours at De La Salle University - Dasmariñas.',
+      tech: [],
+      type: 'Community Outreach',
+      year: 2023,
+      category: 'Community Leadership',
+      image: '/images/cl5.png',
+      link: 'https://youtu.be/jT-zsMNfUqM?si=wbK3MbQsJqt7gPoF',
+      github: null
+    },
+    {
+      title: '\'tis the season to be givin\'',
+      description: 'A community development initiative that successfully distributed educational kits and holiday gifts to Grade 4 students at San Nicolas Elementary School for their Christmas celebration.',
+      tech: [],
+      type: 'Community Outreach',
+      year: 2022,
+      category: 'Community Leadership',
+      image: '/images/cl4.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Project Tanglaw',
+      description: 'A structured incubation program within The Initiative PH that guides teams through rigorous research, concept development, and strategic planning to pitch and establish new advocacy-based departments.',
+      tech: [],
+      type: 'Organizational Development',
+      year: 2021,
+      category: 'Community Leadership',
+      image: '/images/cl3.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Project Alpas: Rebrand',
+      description: 'An internal engagement initiative by the Department of Mental Health for The Initiative PH that utilizes interactive social media prompts and synchronous virtual events to foster community bonding and promote mental wellness.',
+      tech: [],
+      type: 'Organizational Development',
+      year: 2021,
+      category: 'Community Leadership',
+      image: '/images/cl2.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Project Pitching',
+      description: 'An internal incubation platform within The Initiative PH that empowers members to conceptualize and lead diverse organizational initiatives, ranging from community development to internal process improvements, through a structured elevator pitch and proposal refinement cycle.',
+      tech: [],
+      type: 'Organizational Development',
+      year: 2021,
+      category: 'Community Leadership',
+      image: '/images/cl1.png',
+      link: null,
+      github: null
+    },
+    {
       title: 'Disciplines of Social Sciences Infographic',
       description: 'An infographic that illustrates the various disciplines within the social sciences field, highlighting their key areas of study and contributions to understanding human behavior and society.',
       tech: [],
       type: 'Graphic Design',
       year: null,
       category: 'Creative Outputs',
-      image: '/images/co10.png',
+      image: '/images/co11.png',
       link: null,
       github: null
     },
@@ -365,7 +420,7 @@ export default function Projects() {
       type: 'Graphic Design',
       year: null,
       category: 'Creative Outputs',
-      image: '/images/co9.png',
+      image: '/images/co10.png',
       link: null,
       github: null
     },
@@ -376,7 +431,7 @@ export default function Projects() {
       type: 'Graphic Design',
       year: null,
       category: 'Creative Outputs',
-      image: '/images/co8.png',
+      image: '/images/co9.png',
       link: null,
       github: null
     },
@@ -387,13 +442,24 @@ export default function Projects() {
       type: 'Graphic Design',
       year: null,
       category: 'Creative Outputs',
-      image: '/images/co7.png',
+      image: '/images/co8.png',
       link: null,
       github: null
     },
     {
       title: 'Improving Learning Infographic',
       description: 'An infographic that provides tips and strategies for improving learning and study habits.',
+      tech: [],
+      type: 'Graphic Design',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co7.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Communication, Information, and Media Infographic',
+      description: 'An infographic that differentiates between communication, information, and media, highlighting their unique characteristics and roles in society.',
       tech: [],
       type: 'Graphic Design',
       year: null,
@@ -928,8 +994,8 @@ export default function Projects() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {paginatedProjects.map((project, idx) => (
-              <div key={idx} className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-2 cursor-pointer" onClick={() => { if (project.image) { setSelectedImage(project.image); setIsModalOpen(true); } }}>
-                <div className="photo-placeholder aspect-video flex items-center justify-center group-hover:border-pink-500/50 transition-all relative">
+              <div key={idx} className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-2">
+                <div className={`photo-placeholder aspect-video flex items-center justify-center group-hover:border-pink-500/50 transition-all relative ${project.image ? 'cursor-pointer' : ''}`} onClick={project.image ? () => { setSelectedImage(project.image); setIsModalOpen(true); } : undefined}>
                   {project.image ? (
                     <>
                       <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
@@ -944,8 +1010,7 @@ export default function Projects() {
                     </>
                   ) : (
                     <div className="flex flex-col items-center gap-2 text-slate-500">
-                      <Camera size={32} className="group-hover:text-pink-400 transition-colors" />
-                      <span className="text-xs">Project Screenshot</span>
+                      <Sparkles size={32} className="group-hover:text-pink-400 transition-colors" />
                     </div>
                   )}
                 </div>
