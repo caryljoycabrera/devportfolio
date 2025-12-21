@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, ExternalLink, Linkedin, Mail, ArrowRight, Camera } from 'lucide-react';
+import { Github, ExternalLink, Linkedin, Mail, ArrowRight, Camera, X, ZoomIn } from 'lucide-react';
 
 export default function Projects() {
   const isLightMode = (() => {
@@ -119,6 +119,109 @@ export default function Projects() {
     setCurrentPage(1);
   }, [activeTab]);
 
+  // Modal for full-screen image view
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [modalTopOffset, setModalTopOffset] = useState(0);
+  const closeBtnRef = useRef(null);
+  const imgRef = useRef(null);
+  const [zoom, setZoom] = useState(1);
+  const [panX, setPanX] = useState(0);
+  const [panY, setPanY] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const measure = () => {
+      const header = document.querySelector('header');
+      const h = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+      setModalTopOffset(h + 8);
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') setIsModalOpen(false);
+    };
+    if (isModalOpen) {
+      document.addEventListener('keydown', onKey);
+      setTimeout(() => closeBtnRef.current?.focus(), 0);
+      // prevent body scroll
+      document.body.style.overflow = 'hidden';
+      // reset zoom and pan
+      setZoom(1);
+      setPanX(0);
+      setPanY(0);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [isModalOpen]);
+
+  const handleZoomIn = () => setZoom(prev => Math.min(prev * 1.2, 5));
+  const handleZoomOut = () => setZoom(prev => Math.max(prev / 1.2, 1));
+  const handleWheel = (e) => {
+    e.preventDefault();
+    if (e.deltaY < 0) handleZoomIn();
+    else handleZoomOut();
+  };
+  const handleMouseDown = (e) => {
+    if (zoom > 1) {
+      setIsDragging(true);
+      setDragStart({ x: e.clientX - panX, y: e.clientY - panY });
+    }
+  };
+  const handleMouseMove = (e) => {
+    if (isDragging && zoom > 1) {
+      const newPanX = e.clientX - dragStart.x;
+      const newPanY = e.clientY - dragStart.y;
+      constrainPan(newPanX, newPanY);
+    }
+  };
+  const handleMouseUp = () => setIsDragging(false);
+
+  const handleTouchStart = (e) => {
+    if (zoom > 1 && e.touches.length === 1) {
+      const touch = e.touches[0];
+      setIsDragging(true);
+      setDragStart({ x: touch.clientX - panX, y: touch.clientY - panY });
+    }
+  };
+  const handleTouchMove = (e) => {
+    if (isDragging && zoom > 1 && e.touches.length === 1) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const newPanX = touch.clientX - dragStart.x;
+      const newPanY = touch.clientY - dragStart.y;
+      constrainPan(newPanX, newPanY);
+    }
+  };
+  const handleTouchEnd = () => setIsDragging(false);
+
+  const constrainPan = (newPanX, newPanY) => {
+    const img = imgRef.current;
+    if (!img) return;
+    const naturalWidth = img.naturalWidth;
+    const naturalHeight = img.naturalHeight;
+    const containerWidth = window.innerWidth - 32; // approximate padding
+    const containerHeight = window.innerHeight - modalTopOffset - 128;
+    const scaleX = containerWidth / naturalWidth;
+    const scaleY = containerHeight / naturalHeight;
+    const scale = Math.min(scaleX, scaleY);
+    const displayedWidth = naturalWidth * scale * zoom;
+    const displayedHeight = naturalHeight * scale * zoom;
+    const maxPanX = Math.max(0, (displayedWidth - containerWidth) / 2);
+    const maxPanY = Math.max(0, (displayedHeight - containerHeight) / 2);
+    setPanX(Math.max(-maxPanX, Math.min(maxPanX, newPanX)));
+    setPanY(Math.max(-maxPanY, Math.min(maxPanY, newPanY)));
+  };
+
   const sectionClass = (id) => 
     `transition-all duration-1000 ${visibleSections[id] ? 'opacity-100 translate-y-0' : 'opacity-0 sm:translate-y-8'}`;
 
@@ -144,7 +247,7 @@ export default function Projects() {
       year: '2025',
       category: 'Technical Solutions',
       image: '/images/project2.png',
-      link: null,
+      link: 'https://www.canva.com/design/DAG7Rbsj_4A/T5gF6Goj8S9RJR_8D67L3w/view?utm_content=DAG7Rbsj_4A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utm_id=h9a52723737',
       github: 'https://github.com/carebear1919/caresync_mobileapplication.git'
     },
     {
@@ -253,6 +356,126 @@ export default function Projects() {
       category: 'Technical Solutions',
       image: '/images/project11.png',
       link: 'https://realestanddeepest.wixsite.com/perdev',
+      github: null
+    },
+    {
+      title: 'Disciplines of Social Sciences Infographic',
+      description: 'An infographic that illustrates the various disciplines within the social sciences field, highlighting their key areas of study and contributions to understanding human behavior and society.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co10.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Parola Zine Cover Design',
+      description: 'A sample cover design for Parola, a zine publication from a non-profit organization that showcases creative works and stories.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co9.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Evolution of Media Infographic',
+      description: 'An infographic that illustrates the evolution of media from traditional forms to digital platforms.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co8.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Netiquette Infographic',
+      description: 'An infographic that outlines the rules and guidelines for proper online behavior and communication.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co7.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Improving Learning Infographic',
+      description: 'An infographic that provides tips and strategies for improving learning and study habits.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co6.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Types of Intelligence Infographic',
+      description: 'An infographic that illustrates the different types of intelligence.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co5.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Power Infographic',
+      description: 'An infographic that expounds on the concept of power in physical eduction, highlighting benefits, exercises, and training methods for improved athletic performance.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co4.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Principle of Progression Infographic',
+      description: 'An infographic that explains the principle of progression in physical fitness, highlighting the importance of gradually increasing workout intensity to achieve optimal results.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co3.png',
+      link: null,
+      github: null
+    },
+    {
+      title:'Should We Change the World\'s Beauty Standards?',
+      description: 'A performance task that explores the arguments for and against changing societal beauty standards, highlighting the impact on self-esteem and cultural perceptions.',
+      tech: [],
+      type: 'Essay Writing',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co2.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'Snapshot Poster',
+      description: 'A digital art that captures a moment in Paolo Campos\'s life, displaying his experience through a visually appealing poster design.',
+      tech: [],
+      type: 'Graphic Design',
+      status: 'Completed',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co1.png',
+      link: null,
       github: null
     }
   ];
@@ -706,7 +929,7 @@ export default function Projects() {
           <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">
             All <span className="shimmer-text">Projects</span>
           </h1>
-          <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">A comprehensive showcase of my work across technical solutions, community leadership, and creative outputs.</p>
+          <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">A showcase of my multifaceted journey through innovation across various domains.</p>
 
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {['Technical Solutions', 'Community Leadership', 'Creative Outputs'].map(tab => (
@@ -726,10 +949,20 @@ export default function Projects() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {paginatedProjects.map((project, idx) => (
-              <div key={idx} className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-2">
-                <div className="photo-placeholder aspect-video flex items-center justify-center group-hover:border-pink-500/50 transition-all">
+              <div key={idx} className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-2 cursor-pointer" onClick={() => { if (project.image) { setSelectedImage(project.image); setIsModalOpen(true); } }}>
+                <div className="photo-placeholder aspect-video flex items-center justify-center group-hover:border-pink-500/50 transition-all relative">
                   {project.image ? (
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    <>
+                      <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                      {/* Desktop hover overlay */}
+                      <div className="hidden md:flex absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 items-center justify-center">
+                        <ZoomIn size={32} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                      {/* Mobile always-visible zoom icon */}
+                      <div className="md:hidden absolute bottom-2 right-2 bg-black/60 border border-white/30 rounded-full p-1">
+                        <ZoomIn size={20} className="text-white" />
+                      </div>
+                    </>
                   ) : (
                     <div className="flex flex-col items-center gap-2 text-slate-500">
                       <Camera size={32} className="group-hover:text-pink-400 transition-colors" />
@@ -839,6 +1072,58 @@ export default function Projects() {
           </div>
         </div>
       </footer>
+
+      {/* Full-screen image modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-start justify-center p-4" style={{ paddingTop: modalTopOffset + 'px' }} onClick={() => setIsModalOpen(false)} onWheel={() => setIsModalOpen(false)} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+          <div className="relative max-w-full max-h-[calc(100vh-96px)] w-full flex items-center justify-center">
+            <div className="relative" onClick={(e) => e.stopPropagation()}>
+              <button
+                ref={closeBtnRef}
+                className="absolute right-3 top-3 text-white hover:text-pink-400 transition-colors z-10 bg-black/40 rounded-full p-1"
+                onClick={() => setIsModalOpen(false)}
+                aria-label="Close image"
+              >
+                <X size={28} />
+              </button>
+              <button
+                className="absolute left-3 top-3 text-white hover:text-pink-400 transition-colors z-10 bg-black/40 rounded-full p-1"
+                onClick={handleZoomIn}
+                aria-label="Zoom in"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </button>
+              <button
+                className="absolute left-3 top-16 text-white hover:text-pink-400 transition-colors z-10 bg-black/40 rounded-full p-1"
+                onClick={handleZoomOut}
+                aria-label="Zoom out"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </button>
+              <img
+                ref={imgRef}
+                src={selectedImage}
+                alt="Full screen"
+                className={`max-w-full max-h-[calc(100vh-128px)] object-contain rounded ${zoom > 1 ? 'cursor-move' : ''}`}
+                style={{ transform: `scale(${zoom}) translate(${panX}px, ${panY}px)`, transformOrigin: 'center' }}
+                onWheel={handleWheel}
+                onMouseDown={handleMouseDown}
+                onTouchStart={handleTouchStart}
+                draggable={false}
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       <style>{`@keyframes ripple { 0% { transform: translate(-50%, -50%) scale(0); opacity: 1 } 100% { transform: translate(-50%, -50%) scale(1); opacity: 0 } }`}</style>
       </div>

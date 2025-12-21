@@ -1,6 +1,6 @@
 // src/pages/Home.js
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, Sparkles, Heart, Zap, Trophy, Star, ArrowRight, Camera, GraduationCap } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, Sparkles, Heart, Zap, Trophy, Star, ArrowRight, Camera, GraduationCap, X, ZoomIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -476,6 +476,112 @@ export default function Home() {
     { word: 'Persevering', description: 'Difficulties are opportunities' },
     { word: 'Genuine', description: 'True to my voice and values' },
   ];
+
+  // Modal for full-screen image view
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [modalTopOffset, setModalTopOffset] = useState(0);
+  const closeBtnRef = useRef(null);
+  const imgRef = useRef(null);
+  const [zoom, setZoom] = useState(1);
+  const [panX, setPanX] = useState(0);
+  const [panY, setPanY] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const measure = () => {
+      const header = document.querySelector('header');
+      const h = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+      // add a small gap
+      setModalTopOffset(h + 8);
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
+  // Close on Escape and focus close button when modal opens
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') setIsModalOpen(false);
+    };
+    if (isModalOpen) {
+      document.addEventListener('keydown', onKey);
+      // focus the close button
+      setTimeout(() => closeBtnRef.current?.focus(), 0);
+      // prevent body scroll
+      document.body.style.overflow = 'hidden';
+      // reset zoom and pan
+      setZoom(1);
+      setPanX(0);
+      setPanY(0);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [isModalOpen]);
+
+  const handleZoomIn = () => setZoom(prev => Math.min(prev * 1.2, 5));
+  const handleZoomOut = () => setZoom(prev => Math.max(prev / 1.2, 1));
+  const handleWheel = (e) => {
+    e.preventDefault();
+    if (e.deltaY < 0) handleZoomIn();
+    else handleZoomOut();
+  };
+  const handleMouseDown = (e) => {
+    if (zoom > 1) {
+      setIsDragging(true);
+      setDragStart({ x: e.clientX - panX, y: e.clientY - panY });
+    }
+  };
+  const handleMouseMove = (e) => {
+    if (isDragging && zoom > 1) {
+      const newPanX = e.clientX - dragStart.x;
+      const newPanY = e.clientY - dragStart.y;
+      constrainPan(newPanX, newPanY);
+    }
+  };
+  const handleMouseUp = () => setIsDragging(false);
+
+  const handleTouchStart = (e) => {
+    if (zoom > 1 && e.touches.length === 1) {
+      const touch = e.touches[0];
+      setIsDragging(true);
+      setDragStart({ x: touch.clientX - panX, y: touch.clientY - panY });
+    }
+  };
+  const handleTouchMove = (e) => {
+    if (isDragging && zoom > 1 && e.touches.length === 1) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const newPanX = touch.clientX - dragStart.x;
+      const newPanY = touch.clientY - dragStart.y;
+      constrainPan(newPanX, newPanY);
+    }
+  };
+  const handleTouchEnd = () => setIsDragging(false);
+
+  const constrainPan = (newPanX, newPanY) => {
+    const img = imgRef.current;
+    if (!img) return;
+    const naturalWidth = img.naturalWidth;
+    const naturalHeight = img.naturalHeight;
+    const containerWidth = window.innerWidth - 32; // approximate padding
+    const containerHeight = window.innerHeight - modalTopOffset - 128;
+    const scaleX = containerWidth / naturalWidth;
+    const scaleY = containerHeight / naturalHeight;
+    const scale = Math.min(scaleX, scaleY);
+    const displayedWidth = naturalWidth * scale * zoom;
+    const displayedHeight = naturalHeight * scale * zoom;
+    const maxPanX = Math.max(0, (displayedWidth - containerWidth) / 2);
+    const maxPanY = Math.max(0, (displayedHeight - containerHeight) / 2);
+    setPanX(Math.max(-maxPanX, Math.min(maxPanX, newPanX)));
+    setPanY(Math.max(-maxPanY, Math.min(maxPanY, newPanY)));
+  };
 
   // Animation helper
   const sectionClass = (id) => 
@@ -1041,7 +1147,7 @@ export default function Home() {
                 <span className="px-4 py-2 bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 rounded-full text-sm text-slate-300 transition-all duration-300 cursor-default">
                   {v.word}
                 </span>
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-slate-800 rounded text-xs text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                <div className="absolute bottom-full left-0 mb-2 px-3 py-1 bg-slate-800 rounded text-xs text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                   {v.description}
                 </div>
               </div>
@@ -1277,7 +1383,7 @@ export default function Home() {
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
           <p className="text-slate-400 mb-12 max-w-2xl">
-            Exploring my multifaceted journey through innovation across various domains.
+            A showcase of my multifaceted journey through innovation across various domains.
           </p>
 
           <div className="flex space-x-4 mb-8">
@@ -1300,12 +1406,23 @@ export default function Home() {
             {projects.filter(project => project.category === activeTab).slice(0, 6).map((project, idx) => (
               <div 
                 key={idx} 
-                className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-2"
+                className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+                onClick={() => { if (project.image) { setSelectedImage(project.image); setIsModalOpen(true); } }}
               >
                 {/* Project image */}
-                <div className="photo-placeholder aspect-video flex items-center justify-center group-hover:border-pink-500/50 transition-all">
+                <div className="photo-placeholder aspect-video flex items-center justify-center group-hover:border-pink-500/50 transition-all relative">
                   {project.image ? (
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    <>
+                      <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                      {/* Desktop hover overlay */}
+                      <div className="hidden md:flex absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 items-center justify-center">
+                        <ZoomIn size={32} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                      {/* Mobile always-visible zoom icon */}
+                      <div className="md:hidden absolute bottom-2 right-2 bg-black/60 border border-white/30 rounded-full p-1">
+                        <ZoomIn size={20} className="text-white" />
+                      </div>
+                    </>
                   ) : (
                     <div className="flex flex-col items-center gap-2 text-slate-500">
                       <Camera size={32} className="group-hover:text-pink-400 transition-colors" />
@@ -1583,6 +1700,59 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Full-screen image modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-start justify-center p-4" style={{ paddingTop: modalTopOffset + 'px' }} onClick={() => setIsModalOpen(false)} onWheel={() => setIsModalOpen(false)} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+          <div className="relative max-w-full max-h-[calc(100vh-96px)] w-full flex items-center justify-center">
+            <div className="relative" onClick={(e) => e.stopPropagation()}>
+              <button
+                ref={closeBtnRef}
+                className="absolute right-3 top-3 text-white hover:text-pink-400 transition-colors z-10 bg-black/40 rounded-full p-1"
+                onClick={() => setIsModalOpen(false)}
+                aria-label="Close image"
+              >
+                <X size={28} />
+              </button>
+              <button
+                className="absolute left-3 top-3 text-white hover:text-pink-400 transition-colors z-10 bg-black/40 rounded-full p-1"
+                onClick={handleZoomIn}
+                aria-label="Zoom in"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </button>
+              <button
+                className="absolute left-3 top-16 text-white hover:text-pink-400 transition-colors z-10 bg-black/40 rounded-full p-1"
+                onClick={handleZoomOut}
+                aria-label="Zoom out"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </button>
+              <img
+                ref={imgRef}
+                src={selectedImage}
+                alt="Full screen"
+                className={`max-w-full max-h-[calc(100vh-128px)] object-contain rounded ${zoom > 1 ? 'cursor-move' : ''}`}
+                style={{ transform: `scale(${zoom}) translate(${panX}px, ${panY}px)`, transformOrigin: 'center' }}
+                onWheel={handleWheel}
+                onMouseDown={handleMouseDown}
+                onTouchStart={handleTouchStart}
+                draggable={false}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       </div>
     </>
   );
