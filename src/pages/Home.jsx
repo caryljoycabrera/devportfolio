@@ -242,7 +242,6 @@ export default function Home() {
       description: 'A centralized web-based system designed to automate service requests, approval workflows, and task monitoring with performance analytics.',
       tech: ['Node.js', 'Express', 'MongoDB', 'EJS', 'JavaScript', 'DigitalOcean'],
       type: 'Institutional Office Website',
-      status: 'Completed',
       year: '2025',
       image: '/images/project1.png',
       link: 'https://dlsuds-core.me',
@@ -254,7 +253,6 @@ export default function Home() {
       description: 'A mobile application that assists elderly individuals and their caregiversin managing their medication schedules through notification reminders, alarms, and tracking.',
       tech: ['Flutter', 'Dart', 'Firebase'],
       type: 'Elderly Care Mobile App',
-      status: 'Completed',
       year: '2025',
       image: '/images/project2.png',
       link: 'https://www.canva.com/design/DAG7Rbsj_4A/T5gF6Goj8S9RJR_8D67L3w/view?utm_content=DAG7Rbsj_4A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utm_id=h9a52723737',
@@ -266,7 +264,6 @@ export default function Home() {
       description: 'A modern portfolio featuring custom animations, responsive design, and a showcase of skills, projects, and achievements.',
       tech: ['React', 'Tailwind CSS', 'JavaScript', 'Vercel'],
       type: 'Personal Portfolio Website',
-      status: 'Completed',
       year: '2025',
       image: '/images/project3.png',
       link: null,
@@ -278,7 +275,6 @@ export default function Home() {
       description: 'A themed kiosk ordering system for multiple food brands, featuring menu browsing, cart management, and order checkout functionalities.',
       tech: ['Node.js', 'Express', 'EJS', 'JavaScript'],
       type: 'Online Ordering Website',
-      status: 'Completed',
       year: '2025',
       image: '/images/project4.png',
       link: null,
@@ -290,7 +286,6 @@ export default function Home() {
       description: 'An event registration system for reality TV show awarding event, allowing participants to register and manage their attendance seamlessly.',
       tech: ['Google Apps Script', 'Google Sheets', 'JavaScript', 'GitHub Pages'],
       type: 'Event Registration System',
-      status: 'Completed',
       year: '2025',
       image: '/images/project5.png',
       link: 'https://caryljoycabrera.github.io/PBB-Big-Night/',
@@ -302,7 +297,6 @@ export default function Home() {
       description: 'A comprehensive pet shelter management system facilitating animal intake, adoption processes, donation records, and announcements.',
       tech: ['ASP.NET', 'C#', 'MySQL', 'MVC Architecture'],
       type: 'Pet Shelter Services Website',
-      status: 'Completed',
       year: '2024 ',
       image: '/images/project6.png',
       link: null,
@@ -314,7 +308,6 @@ export default function Home() {
       description: 'A scholarship management system streamlining scholar monitoring and tuition deduction processes for the scholarship office of an institution.',
       tech: ['ASP.NET', 'C#', 'MySQL', 'MVC Architecture'],
       type: 'Scholarship Website',
-      status: 'Completed',
       year: '2024',
       image: '/images/project7.png',
       link: null,
@@ -326,7 +319,6 @@ export default function Home() {
       description: 'A mobile app prototype for a grocery order calculator and receipt generator to assist in streamlining checkout processes, improving accuracy and efficiency for cashiers.',
       tech: ['Android Studio', 'Java'],
       type: 'Mobile App Design',
-      status: 'Completed',
       year: '2024',
       image: '/images/project8.png',
       link: 'https://drive.google.com/file/d/1X7ukcjH0se3gr857oIqdLAgB_9SiKCJp/view?usp=sharing',
@@ -338,7 +330,6 @@ export default function Home() {
       description: 'A mobile app prototype for Google Flights, focusing on user-friendly flight search, booking, seat selection, and payment features with passenger approval and list.',
       tech: ['Figma'],
       type: 'Mobile App Design',
-      status: 'Completed',
       year: '2023',
       image: '/images/project9.png',
       link: 'https://www.figma.com/proto/G6SmUceq9KK46PYzCGMJzz/Google-Flights?node-id=2-140&p=f&t=grTawYpATDk9AJFF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2',
@@ -350,7 +341,6 @@ export default function Home() {
       description: 'A website for the Women in Tech Global Conference 2023, providing event details, program information, registration, partners, and contact functionalities.', 
       tech: ['Wix'],
       type: 'Event Website',
-      status: 'Completed',
       year: '2022',
       image: '/images/project10.png',
       link: 'https://girlcodenetwork.wixsite.com/witg2023',
@@ -362,20 +352,17 @@ export default function Home() {
       description: 'A group blog website focusing on personal development topics, featuring articles, resources, community engagement, and interactive elements.',
       tech: ['Wix'],
       type: 'Blog Website',
-      status: 'Completed',
       year: '2021',
       image: '/images/project11.png',
       link: 'https://realestanddeepest.wixsite.com/perdev',
       github: null,
       category: 'Technical Solutions'
     },
-    ,
     {
       title: 'Disciplines of Social Sciences Infographic',
       description: 'An infographic that illustrates the various disciplines within the social sciences field, highlighting their key areas of study and contributions to understanding human behavior and society.',
       tech: [],
       type: 'Graphic Design',
-      status: 'Completed',
       year: null,
       category: 'Creative Outputs',
       image: '/images/co10.png',
@@ -387,7 +374,6 @@ export default function Home() {
       description: 'A sample cover design for Parola, a zine publication from a non-profit organization that showcases creative works and stories.',
       tech: [],
       type: 'Graphic Design',
-      status: 'Completed',
       year: null,
       category: 'Creative Outputs',
       image: '/images/co9.png',
@@ -399,7 +385,6 @@ export default function Home() {
       description: 'An infographic that illustrates the evolution of media from traditional forms to digital platforms.',
       tech: [],
       type: 'Graphic Design',
-      status: 'Completed',
       year: null,
       category: 'Creative Outputs',
       image: '/images/co8.png',
@@ -411,7 +396,6 @@ export default function Home() {
       description: 'An infographic that outlines the rules and guidelines for proper online behavior and communication.',
       tech: [],
       type: 'Graphic Design',
-      status: 'Completed',
       year: null,
       category: 'Creative Outputs',
       image: '/images/co7.png',
@@ -423,7 +407,6 @@ export default function Home() {
       description: 'An infographic that provides tips and strategies for improving learning and study habits.',
       tech: [],
       type: 'Graphic Design',
-      status: 'Completed',
       year: null,
       category: 'Creative Outputs',
       image: '/images/co6.png',
@@ -435,7 +418,6 @@ export default function Home() {
       description: 'An infographic that illustrates the different types of intelligence.',
       tech: [],
       type: 'Graphic Design',
-      status: 'Completed',
       year: null,
       category: 'Creative Outputs',
       image: '/images/co5.png',
@@ -1506,15 +1488,8 @@ export default function Home() {
                 
                 <div className="p-5">
                   <div className="flex justify-between items-start mb-2">
-                    <span className={`text-xs px-2 py-1 rounded ${
-                      project.status === 'Completed' ? 'bg-green-500/20 text-green-400' :
-                      project.status === 'In Development' ? 'bg-yellow-500/20 text-yellow-400' :
-                      'bg-slate-500/20 text-slate-400'
-                    }`}>
-                      {project.status}
-                    </span>
+                    <span className="text-xs px-2 py-1 rounded bg-blue-500/20 text-blue-400">{project.type}</span>
                     <div className="flex flex-col items-end gap-1">
-                      <span className="text-xs text-slate-500">{project.type}</span>
                       <span className="text-xs text-slate-400 font-mono">{project.year}</span>
                     </div>
                   </div>
