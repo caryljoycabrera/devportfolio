@@ -304,61 +304,6 @@ export default function Home() {
       category: 'Technical Solutions'
     },
     {
-      title: 'University Scholarship System',
-      description: 'A scholarship management system streamlining scholar monitoring and tuition deduction processes for the scholarship office of an institution.',
-      tech: ['ASP.NET', 'C#', 'MySQL', 'MVC Architecture'],
-      type: 'Scholarship Website',
-      year: '2024',
-      image: '/images/project7.png',
-      link: null,
-      github: null,
-      category: 'Technical Solutions'
-    },
-    {
-      title: 'Go Glow Grocery Mobile App',
-      description: 'A mobile app prototype for a grocery order calculator and receipt generator to assist in streamlining checkout processes, improving accuracy and efficiency for cashiers.',
-      tech: ['Android Studio', 'Java'],
-      type: 'Mobile App Design',
-      year: '2024',
-      image: '/images/project8.png',
-      link: 'https://drive.google.com/file/d/1X7ukcjH0se3gr857oIqdLAgB_9SiKCJp/view?usp=sharing',
-      github: 'https://github.com/caryljoycabrera/GoGlowGrowceryApp.git',
-      category: 'Technical Solutions'
-    },
-    {
-      title: 'Google Flights Mobile App',
-      description: 'A mobile app prototype for Google Flights, focusing on user-friendly flight search, booking, seat selection, and payment features with passenger approval and list.',
-      tech: ['Figma'],
-      type: 'Mobile App Design',
-      year: '2023',
-      image: '/images/project9.png',
-      link: 'https://www.figma.com/proto/G6SmUceq9KK46PYzCGMJzz/Google-Flights?node-id=2-140&p=f&t=grTawYpATDk9AJFF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2',
-      github: null,
-      category: 'Technical Solutions'
-    },
-    {
-      title: 'Women in Tech Global Conference 2023',
-      description: 'A website for the Women in Tech Global Conference 2023, providing event details, program information, registration, partners, and contact functionalities.', 
-      tech: ['Wix'],
-      type: 'Event Website',
-      year: '2022',
-      image: '/images/project10.png',
-      link: 'https://girlcodenetwork.wixsite.com/witg2023',
-      github: null,
-      category: 'Technical Solutions'
-    },
-    {
-      title: 'Realest and Deepest',
-      description: 'A group blog website focusing on personal development topics, featuring articles, resources, community engagement, and interactive elements.',
-      tech: ['Wix'],
-      type: 'Blog Website',
-      year: '2021',
-      image: '/images/project11.png',
-      link: 'https://realestanddeepest.wixsite.com/perdev',
-      github: null,
-      category: 'Technical Solutions'
-    },
-    {
       title: 'Disciplines of Social Sciences Infographic',
       description: 'An infographic that illustrates the various disciplines within the social sciences field, highlighting their key areas of study and contributions to understanding human behavior and society.',
       tech: [],
@@ -392,36 +337,36 @@ export default function Home() {
       github: null
     },
     {
-      title: 'Netiquette Infographic',
-      description: 'An infographic that outlines the rules and guidelines for proper online behavior and communication.',
+      title: 'Cape Verde Brochure',
+      description: 'A travel brochure that highlights the attractions, culture, and experiences of Cape Verde, designed to entice travelers to visit this beautiful island nation.',
       tech: [],
       type: 'Graphic Design',
       year: null,
       category: 'Creative Outputs',
-      image: '/images/co8.png',
+      image: '/images/co14.png',
       link: null,
       github: null
     },
     {
-      title: 'Improving Learning Infographic',
-      description: 'An infographic that provides tips and strategies for improving learning and study habits.',
+      title: 'How to Invest in the Stock Market',
+      description: 'A presentation that provides an overview of the stock market, investment strategies, and tips for beginners looking to start investing.',
       tech: [],
-      type: 'Graphic Design',
+      type: 'Presentation',
       year: null,
       category: 'Creative Outputs',
-      image: '/images/co7.png',
-      link: null,
+      image: '/images/co13.png',
+      link: '/files/HowToInvestInTheStockMarket.pdf',
       github: null
     },
     {
-      title: 'Communication vs Information vs Media Infographic',
-      description: 'An infographic that differentiates between communication, information, and media, highlighting their unique characteristics and roles in society.',
+      title: 'Shadows of Suppression: Martial Law Unveiled',
+      description: 'A Wakelet collection that explores the historical context, key events, and lasting impact of Martial Law in the Philippines, shedding light on its effects on society, governance, and human rights.',
       tech: [],
-      type: 'Graphic Design',
+      type: 'Presentation',
       year: null,
       category: 'Creative Outputs',
-      image: '/images/co6.png',
-      link: null,
+      image: '/images/co16.png',
+      link: 'https://wakelet.com/wake/36E8T4T8x-0-eC-UEzelu',
       github: null
     }
   ];
@@ -1473,7 +1418,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {projects.filter(project => project.category === activeTab).slice(0, 6).map((project, idx) => (
               <div 
-                key={idx} 
+                key={project.image || idx} 
                 className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-2"
               >
                 {/* Project image */}

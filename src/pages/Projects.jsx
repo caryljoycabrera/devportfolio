@@ -445,39 +445,6 @@ export default function Projects() {
       github: null
     },
     {
-      title: 'Cape Verde Brochure',
-      description: 'A travel brochure that highlights the attractions, culture, and experiences of Cape Verde, designed to entice travelers to visit this beautiful island nation.',
-      tech: [],
-      type: 'Graphic Design',
-      year: null,
-      category: 'Creative Outputs',
-      image: '/images/co14.png',
-      link: null,
-      github: null
-    },
-    {
-      title: 'How to Invest in the Stock Market',
-      description: 'A presentation that provides an overview of the stock market, investment strategies, and tips for beginners looking to start investing.',
-      tech: [],
-      type: 'Presentation',
-      year: null,
-      category: 'Creative Outputs',
-      image: '/images/co13.png',
-      link: '/files/HowToInvestInTheStockMarket.pdf',
-      github: null
-    },
-    {
-      title: 'Oral Communication Models',
-      description: 'A presentation that explains the communication models used in oral communication, highlighting their key components and functions.',
-      tech: [],
-      type: 'Presentation',
-      year: null,
-      category: 'Creative Outputs',
-      image: '/images/co12.png',
-      link: '/files/CommunicationModels.pdf',
-      github: null
-    },
-    {
       title: 'Disciplines of Social Sciences Infographic',
       description: 'An infographic that illustrates the various disciplines within the social sciences field, highlighting their key areas of study and contributions to understanding human behavior and society.',
       tech: [],
@@ -508,6 +475,61 @@ export default function Projects() {
       category: 'Creative Outputs',
       image: '/images/co9.png',
       link: null,
+      github: null
+    },
+    {
+      title: 'Cape Verde Brochure',
+      description: 'A travel brochure that highlights the attractions, culture, and experiences of Cape Verde, designed to entice travelers to visit this beautiful island nation.',
+      tech: [],
+      type: 'Graphic Design',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co14.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'How to Invest in the Stock Market',
+      description: 'A presentation that provides an overview of the stock market, investment strategies, and tips for beginners looking to start investing.',
+      tech: [],
+      type: 'Presentation',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co13.png',
+      link: '/files/HowToInvestInTheStockMarket.pdf',
+      github: null
+    },
+    {
+      title: 'Shadows of Suppression: Martial Law Unveiled',
+      description: 'A Wakelet collection that explores the historical context, key events, and lasting impact of Martial Law in the Philippines, shedding light on its effects on society, governance, and human rights.',
+      tech: [],
+      type: 'Presentation',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co16.png',
+      link: 'https://wakelet.com/wake/36E8T4T8x-0-eC-UEzelu',
+      github: null
+    },
+    {
+      title: 'Oral Communication Models',
+      description: 'A presentation that explains the communication models used in oral communication, highlighting their key components and functions.',
+      tech: [],
+      type: 'Presentation',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co12.png',
+      link: '/files/CommunicationModels.pdf',
+      github: null
+    },
+    {
+      title: 'Sustainable Development Goals',
+      description: 'A presentation that provides an overview of the United Nations Sustainable Development Goals (SDGs), highlighting their importance and the global efforts to achieve them by 2030.',
+      tech: [],
+      type: 'Presentation',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co15.png',
+      link: '/files/SDGs.pdf',
       github: null
     },
     {
@@ -1090,7 +1112,7 @@ export default function Projects() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {paginatedProjects.map((project, idx) => (
-              <div key={idx} className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-2">
+              <div key={project.image || idx} className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl overflow-hidden hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-2">
                 <div className={`photo-placeholder aspect-video flex items-center justify-center group-hover:border-pink-500/50 transition-all relative ${project.image ? 'cursor-pointer' : ''}`} onClick={project.image ? () => { setSelectedImage(project.image); setIsModalOpen(true); } : undefined}>
                   {project.image ? (
                     <>
