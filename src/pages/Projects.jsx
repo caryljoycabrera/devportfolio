@@ -390,8 +390,30 @@ export default function Projects() {
       github: null
     },
     {
+      title: 'KISLAP: A Worship Concert for Every Juan',
+      description: 'A worship night event organized to bring together individuals from the DLSU-D community to celebrate faith and unity through music and fellowship.',
+      tech: [],
+      type: 'Community Development',
+      year: 2024,
+      category: 'Community Leadership',
+      image: '/images/cl7.png',
+      link: 'https://www.facebook.com/media/set/?set=a.850635360433286&type=3',
+      github: null
+    },
+    {
+      title: 'Safe SpACES: A Self-Defense Workshop',
+      description: 'An advocacy event that conducted self-defense workshops for college students, aiming to empower them with practical skills and knowledge to enhance their personal safety and confidence in various situations.',
+      tech: [],
+      type: 'Community Development',
+      year: 2023,
+      category: 'Community Leadership',
+      image: '/images/cl6.png',
+      link: 'https://www.facebook.com/media/set/?set=a.757982293011523&type=3',
+      github: null
+    },
+    {
       title: 'Talino at Talento: Unleashing the Potential of Young Minds',
-      description: 'A community development initiative in partnership with Burol 1, designed to empower underprivileged youth through educational workshops, interactive games, and cultural tours at De La Salle University - Dasmariñas.',
+      description: 'A children\'s assembly event in partnership with Burol 1, designed to empower underprivileged youth through educational workshops, interactive games, and cultural tours at De La Salle University - Dasmariñas.',
       tech: [],
       type: 'Community Outreach',
       year: 2023,
@@ -402,7 +424,7 @@ export default function Projects() {
     },
     {
       title: '\'tis the season to be givin\'',
-      description: 'A community development initiative that successfully distributed educational kits and holiday gifts to Grade 4 students at San Nicolas Elementary School for their Christmas celebration.',
+      description: 'An initiative that successfully distributed educational kits and holiday gifts to Grade 4 students at San Nicolas Elementary School for their Christmas celebration.',
       tech: [],
       type: 'Community Outreach',
       year: 2022,
@@ -424,7 +446,7 @@ export default function Projects() {
     },
     {
       title: 'Project Alpas: Rebrand',
-      description: 'An internal engagement initiative by the Department of Mental Health for The Initiative PH that utilizes interactive social media prompts and synchronous virtual events to foster community bonding and promote mental wellness.',
+      description: 'An internal engagement program by the Department of Mental Health for The Initiative PH that utilizes interactive social media prompts and synchronous virtual events to foster community bonding and promote mental wellness.',
       tech: [],
       type: 'Organizational Development',
       year: 2021,
