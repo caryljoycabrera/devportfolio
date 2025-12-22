@@ -645,8 +645,8 @@ export default function Home() {
     const scale = Math.min(scaleX, scaleY);
     const displayedWidth = naturalWidth * scale * zoom;
     const displayedHeight = naturalHeight * scale * zoom;
-    const maxPanX = Math.max(0, (displayedWidth - containerWidth) / 2);
-    const maxPanY = Math.max(0, (displayedHeight - containerHeight) / 2);
+    const maxPanX = Math.min((displayedWidth - containerWidth) / 2, containerWidth / 2);
+    const maxPanY = Math.min((displayedHeight - containerHeight) / 2, containerHeight / 2);
     setPanX(Math.max(-maxPanX, Math.min(maxPanX, newPanX)));
     setPanY(Math.max(-maxPanY, Math.min(maxPanY, newPanY)));
   };
