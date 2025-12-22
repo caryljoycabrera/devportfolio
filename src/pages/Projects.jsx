@@ -402,7 +402,7 @@ export default function Projects() {
     },
     {
       title: 'Feast of Saint Julian Alfredo',
-      description: 'A spiritual and community-building celebration organized that engaged CICS and non-CICS participants through a solemn mass, fellowship gathering, and creative activities to honor the \'s patron saint.',
+      description: 'A spiritual and community-building celebration organized that engaged CICS and non-CICS participants through a solemn mass, fellowship gathering, and creative activities to honor the college\'s patron saint.',
       tech: [],
       type: 'Collegiate Event',
       year: 2025,
