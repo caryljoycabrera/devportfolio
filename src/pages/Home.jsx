@@ -1624,10 +1624,10 @@ export default function Home() {
           <div className="mt-8 sm:mt-12 p-4 sm:p-6 bg-gradient-to-r from-pink-900/10 via-purple-900/10 to-blue-900/10 border border-pink-800/30 rounded-xl">
             <h3 className="text-lg font-semibold mb-6 text-pink-400 flex items-center gap-2">
               <Zap size={20} />
-              Leadership Experience Highlights (2022 - 2025)
+              Leadership Experience Highlights (2021 - 2025)
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Column 1: CSG and CSA */}
+              {/* Column 1: CSG and CSO */}
               <div className="space-y-4">
                 <div>
                   <h4 className="text-slate-200 font-semibold mb-2">College Student Government</h4>
@@ -1647,19 +1647,19 @@ export default function Home() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-slate-200 font-semibold mb-2">Circle of Student Assistants</h4>
+                  <h4 className="text-slate-200 font-semibold mb-2">Council of Student Organizations</h4>
                   <ul className="space-y-1 text-slate-300 text-sm">
                     <li className="flex items-center gap-2">
                       <span className="text-pink-400">•</span>
-                      Director for External Affairs
+                      Associate Executive Director
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-pink-400">•</span>
-                      Junior Officer for Business Manager
+                      Director for Spiritual Activities
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-pink-400">•</span>
-                      Sponsorship and Partnership Committee
+                      Internal Affairs Executive Committee
                     </li>
                   </ul>
                 </div>
@@ -1667,19 +1667,19 @@ export default function Home() {
               {/* Column 2: COSA, SINAG, TIPH */}
               <div className="space-y-4">
                 <div>
-                  <h4 className="text-slate-200 font-semibold mb-2">Council of Student Organizations</h4>
+                  <h4 className="text-slate-200 font-semibold mb-2">Circle of Student Assistants</h4>
                   <ul className="space-y-1 text-slate-300 text-sm">
                     <li className="flex items-center gap-2">
                       <span className="text-purple-400">•</span>
-                      Associate Executive Director
+                      Director for External Affairs
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-purple-400">•</span>
-                      Director for Spiritual Activities
+                      Junior Officer for Business Manager
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-purple-400">•</span>
-                      Internal Affairs Executive Committee
+                      Sponsorship and Partnership Committee
                     </li>
                   </ul>
                 </div>
@@ -1689,6 +1689,19 @@ export default function Home() {
                     <li className="flex items-center gap-2">
                       <span className="text-purple-400">•</span>
                       Junior Officer for Communications
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-slate-200 font-semibold mb-2">The Initiative PH</h4>
+                  <ul className="space-y-1 text-slate-300 text-sm">
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-400">•</span>
+                      Department of Mental Health
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-400">•</span>
+                      Multimedia Artist
                     </li>
                   </ul>
                 </div>
@@ -1708,6 +1721,10 @@ export default function Home() {
                   <li className="flex items-start gap-2">
                     <span className="text-blue-400 mt-0.5">•</span>
                     Organized workshops and training sessions
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-400 mt-0.5">•</span>
+                    Took part in communications, marketing, and logistics
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-400 mt-0.5">•</span>
