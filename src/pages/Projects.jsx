@@ -66,6 +66,8 @@ export default function Projects() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [ripples, setRipples] = useState([]);
   const rippleIdRef = useRef(0);
+  const particlesRef = useRef([]);
+  const [particlesLoaded, setParticlesLoaded] = useState(false);
 
   useEffect(() => {
     let lastRippleTime = 0;
@@ -83,6 +85,32 @@ export default function Projects() {
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Generate stable particle positions on mount
+  useEffect(() => {
+    // Create a more scattered and balanced grid of particles (half as many: 12 total)
+    const rows = 3;
+    const cols = 4;
+    const total = rows * cols;
+    const xSpacing = 100 / cols;
+    const ySpacing = 100 / rows;
+    particlesRef.current = Array.from({ length: total }).map((_, i) => {
+      const row = Math.floor(i / cols);
+      const col = i % cols;
+      // Edge-to-edge scatter, no margins
+      const baseX = col * xSpacing + Math.random() * xSpacing;
+      const baseY = row * ySpacing + Math.random() * ySpacing;
+      return {
+        id: i,
+        baseX,
+        baseY,
+        color: ['#ec4899', '#a855f7', '#3b82f6'][i % 3],
+        delay: i * 0.15,
+        duration: 7 + (i % 3) * 2
+      };
+    });
+    setParticlesLoaded(true);
   }, []);
 
   // Page fade-in
@@ -130,6 +158,7 @@ export default function Projects() {
   const [panY, setPanY] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const savedScrollYRef = useRef(0);
 
   useEffect(() => {
     const measure = () => {
@@ -150,17 +179,30 @@ export default function Projects() {
       document.addEventListener('keydown', onKey);
       setTimeout(() => closeBtnRef.current?.focus(), 0);
       // prevent body scroll
-      document.body.style.overflow = 'hidden';
+      const scrollY = window.scrollY;
+      savedScrollYRef.current = scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.touchAction = 'none';
       // reset zoom and pan
       setZoom(1);
       setPanX(0);
       setPanY(0);
     } else {
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.touchAction = '';
+      window.scrollTo(0, savedScrollYRef.current);
     }
     return () => {
       document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.touchAction = '';
+      window.scrollTo(0, savedScrollYRef.current);
     };
   }, [isModalOpen]);
 
@@ -206,7 +248,7 @@ export default function Projects() {
 
   const constrainPan = (newPanX, newPanY) => {
     const img = imgRef.current;
-    if (!img) return;
+    if (!img || !img.complete || img.naturalWidth === 0) return;
     const naturalWidth = img.naturalWidth;
     const naturalHeight = img.naturalHeight;
     const containerWidth = window.innerWidth - 32; // approximate padding
@@ -400,6 +442,39 @@ export default function Projects() {
       category: 'Community Leadership',
       image: '/images/cl1.png',
       link: null,
+      github: null
+    },
+    {
+      title: 'Cape Verde Brochure',
+      description: 'A travel brochure that highlights the attractions, culture, and experiences of Cape Verde, designed to entice travelers to visit this beautiful island nation.',
+      tech: [],
+      type: 'Graphic Design',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co14.png',
+      link: null,
+      github: null
+    },
+    {
+      title: 'How to Invest in the Stock Market',
+      description: 'A presentation that provides an overview of the stock market, investment strategies, and tips for beginners looking to start investing.',
+      tech: [],
+      type: 'Presentation',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co13.png',
+      link: '/files/HowToInvestInTheStockMarket.pdf',
+      github: null
+    },
+    {
+      title: 'Oral Communication Models',
+      description: 'A presentation that explains the communication models used in oral communication, highlighting their key components and functions.',
+      tech: [],
+      type: 'Presentation',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co12.png',
+      link: '/files/CommunicationModels.pdf',
       github: null
     },
     {
@@ -966,6 +1041,27 @@ export default function Projects() {
         <div className="absolute rounded-full" style={{ width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(59, 130, 246, 0.04) 0%, transparent 60%)', transform: 'translate(-50%, -50%)' }} />
       </div>
 
+      {/* Scattered blobs positioned like particles */}
+      {particlesLoaded && pageVisible && (
+        <div className="fixed inset-0 pointer-events-none opacity-100">
+          {particlesRef.current.map((particle) => (
+            <div
+              key={particle.id}
+              className="absolute rounded-full blur-2xl"
+              style={{
+                left: `${particle.baseX}%`,
+                top: `${particle.baseY}%`,
+                width: '300px',
+                height: '300px',
+                background: `radial-gradient(circle, ${particle.color}30 0%, transparent 70%)`,
+                animation: `glow 4s ease-in-out infinite`,
+                animationDelay: `${particle.delay}s`
+              }}
+            />
+          ))}
+        </div>
+      )}
+
       <div className={`transition-opacity duration-1000 ${pageVisible ? 'opacity-100' : 'opacity-0'}`}>
 
       {/* Main Content */}
@@ -1119,7 +1215,7 @@ export default function Projects() {
 
       {/* Full-screen image modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-start justify-center p-4" style={{ paddingTop: modalTopOffset + 'px' }} onClick={() => setIsModalOpen(false)} onWheel={() => setIsModalOpen(false)} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-start justify-center p-4" style={{ paddingTop: modalTopOffset + 'px', touchAction: 'none' }} onClick={() => setIsModalOpen(false)} onWheel={() => setIsModalOpen(false)} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} onTouchStart={(e) => { if (zoom <= 1) e.preventDefault(); }}>
           <div className="relative max-w-full max-h-[calc(100vh-96px)] w-full flex items-center justify-center">
             <div className="relative" onClick={(e) => e.stopPropagation()}>
               <button
@@ -1161,7 +1257,8 @@ export default function Projects() {
                 style={{ transform: `scale(${zoom}) translate(${panX}px, ${panY}px)`, transformOrigin: 'center' }}
                 onWheel={handleWheel}
                 onMouseDown={handleMouseDown}
-                onTouchStart={handleTouchStart}
+                onTouchStart={(e) => { handleTouchStart(e); if (zoom > 1) e.preventDefault(); }}
+                onTouchMove={(e) => { handleTouchMove(e); if (zoom > 1) e.preventDefault(); }}
                 draggable={false}
               />
             </div>

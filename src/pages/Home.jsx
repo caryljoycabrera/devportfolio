@@ -543,6 +543,7 @@ export default function Home() {
   const [panY, setPanY] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const savedScrollYRef = useRef(0);
 
   useEffect(() => {
     const measure = () => {
@@ -563,20 +564,32 @@ export default function Home() {
     };
     if (isModalOpen) {
       document.addEventListener('keydown', onKey);
-      // focus the close button
       setTimeout(() => closeBtnRef.current?.focus(), 0);
       // prevent body scroll
-      document.body.style.overflow = 'hidden';
+      const scrollY = window.scrollY;
+      savedScrollYRef.current = scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.touchAction = 'none';
       // reset zoom and pan
       setZoom(1);
       setPanX(0);
       setPanY(0);
     } else {
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.touchAction = '';
+      window.scrollTo(0, savedScrollYRef.current);
     }
     return () => {
       document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.touchAction = '';
+      window.scrollTo(0, savedScrollYRef.current);
     };
   }, [isModalOpen]);
 
@@ -622,7 +635,7 @@ export default function Home() {
 
   const constrainPan = (newPanX, newPanY) => {
     const img = imgRef.current;
-    if (!img) return;
+    if (!img || !img.complete || img.naturalWidth === 0) return;
     const naturalWidth = img.naturalWidth;
     const naturalHeight = img.naturalHeight;
     const containerWidth = window.innerWidth - 32; // approximate padding
@@ -1821,7 +1834,7 @@ export default function Home() {
 
       {/* Full-screen image modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-start justify-center p-4" style={{ paddingTop: modalTopOffset + 'px' }} onClick={() => setIsModalOpen(false)} onWheel={() => setIsModalOpen(false)} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-start justify-center p-4" style={{ paddingTop: modalTopOffset + 'px', touchAction: 'none' }} onClick={() => setIsModalOpen(false)} onWheel={() => setIsModalOpen(false)} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} onTouchStart={(e) => { if (zoom <= 1) e.preventDefault(); }}>
           <div className="relative max-w-full max-h-[calc(100vh-96px)] w-full flex items-center justify-center">
             <div className="relative" onClick={(e) => e.stopPropagation()}>
               <button
@@ -1863,7 +1876,8 @@ export default function Home() {
                 style={{ transform: `scale(${zoom}) translate(${panX}px, ${panY}px)`, transformOrigin: 'center' }}
                 onWheel={handleWheel}
                 onMouseDown={handleMouseDown}
-                onTouchStart={handleTouchStart}
+                onTouchStart={(e) => { handleTouchStart(e); if (zoom > 1) e.preventDefault(); }}
+                onTouchMove={(e) => { handleTouchMove(e); if (zoom > 1) e.preventDefault(); }}
                 draggable={false}
               />
             </div>
