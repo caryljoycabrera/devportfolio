@@ -81,7 +81,7 @@ export default function Home() {
   const particlesRef = useRef([]);
   const rippleIdRef = useRef(0);
   
-  const tagline = "I build with intention.";
+  const tagline = "Aspiring IT Project Coordinator and Operations Analyst";
 
   // Generate stable particle positions on mount (increased to 24 dots)
   useEffect(() => {
@@ -214,6 +214,7 @@ export default function Home() {
     { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
     { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
     { name: 'C#', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
+    { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
     { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
     { name: 'Dart', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg' },
     { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
@@ -232,8 +233,7 @@ export default function Home() {
     { name: 'Firebase', icon: 'https://cdn.simpleicons.org/firebase' },
     { name: 'SAP S/4 HANA', icon: 'https://cdn.simpleicons.org/sap' },
     { name: 'Kubernetes', icon: 'https://cdn.simpleicons.org/kubernetes' },
-    { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker' },
-    { name: 'DigitalOcean', icon: 'https://cdn.simpleicons.org/digitalocean' }
+    { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker' }
   ];
 
   const projects = [
@@ -304,6 +304,105 @@ export default function Home() {
       category: 'Technical Solutions'
     },
     {
+      title: 'Chasing Victory Golden: The National Esports Tournament and Gaming Convention',
+      description: 'A large-scale esports and cosplay event that united gaming enthusiasts through competitive tournaments, cosplay showcases, and interactive booth experiences supported by notable brands and guests, featuring exclusive appearances by top cosplay icon Charess and international Valorant champion PatMen.',
+      tech: [],
+      type: 'Esports and Cosplay Convention',
+      year: 2025,
+      category: 'Community Leadership',
+      image: '/images/cl16.png',
+      link: 'https://www.facebook.com/media/set/?set=a.122195282144448213&type=3',
+      github: null
+    },
+    {
+      title: 'Feast of Saint Julian Alfredo',
+      description: 'A spiritual and community-building celebration organized that engaged CICS and non-CICS participants through a solemn mass, fellowship gathering, and creative activities to honor the \'s patron saint.',
+      tech: [],
+      type: 'Collegiate Event',
+      year: 2025,
+      category: 'Community Leadership',
+      image: '/images/cl15.png',
+      link: 'https://www.facebook.com/DLSUD.CICSSG/posts/pfbid08aAZB11LePM3t4XWKWwJBdQc23CVS2oHpBCPmEF5crNPxKhhHoG3QKMYCnjNXUEwl',
+      github: null
+    },
+    {
+      title: 'SpeciFi: Find Your Specialization',
+      description: 'A strategic academic guidance workshop designed to assist 500 underclassmen in selecting their specialization tracks through comprehensive curriculum overviews and career insights provided by faculty and alumni.',
+      tech: [],
+      type: 'Specialization Seminar',
+      year: 2025,
+      category: 'Community Leadership',
+      image: '/images/cl14.png',
+      link: 'https://www.facebook.com/DLSUD.CICSSG/posts/pfbid0263vzhAsrHgVMDAU5BeFmKvWdkkKvAFbLMnQgCoG2voJ1p77AQ3HyRXLizePvVJkFl',
+      github: null
+    },
+    {
+      title: 'CICS College Orientation',
+      description: 'An orientation program for incoming students of the College of Information and Computer Studies, featuring interactive activities, informative sessions, and community-building segments to welcome and integrate new students into the college community.',
+      tech: [],
+      type: 'Collegiate Event',
+      year: 2025,
+      category: 'Community Leadership',
+      image: '/images/cl13.png',
+      link: 'https://www.facebook.com/DLSUD.CICSSG/posts/pfbid024TRxtkFqoBB3j8DjphmqBvQjANQduMWdCsxetPgzgH3vwvKN2ym8n5aqbwfEWV4Cl',
+      github: null
+    },
+    {
+      title: 'Who Can See Me?: Protecting Privacy and Security in the Digital Landscape',
+      description: 'A virtual seminar on digital privacy and security that engaged participants in expert-led discussions regarding access rights and digital footprints, empowering them to navigate the online world safely and responsibly.',
+      tech: [],
+      type: 'Webinar Event',
+      year: 2025,
+      category: 'Community Leadership',
+      image: '/images/cl12.png',
+      link: 'https://www.facebook.com/WhoCanSeeMeWebinar',
+      github: null
+    },
+    {
+      title: 'CICS Research Week 2025',
+      description: 'An academic event that showcased research projects and innovations from students of the College of Information and Computer Studies, fostering a culture of inquiry and knowledge sharing within the academic community through exhibit, turnover ceremony, ethics webinar, and awarding ceremony.',
+      tech: [],
+      type: 'Collegiate Event',
+      year: 2025,
+      category: 'Community Leadership',
+      image: '/images/cl11.png',
+      link: 'https://www.facebook.com/media/set/?vanity=dlsud.cics&set=a.122104882700863997',
+      github: null
+    },
+    {
+      title: 'C Program Process Diagram',
+      description: 'A presentation that illustrates the step-by-step process of compiling and executing a C program, from writing the source code to terminating the executable file.',
+      tech: [],
+      type: 'Presentation',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co19.png',
+      link: '/files/CProgramProcessDiagram.pdf',
+      github: null
+    },
+    {
+      title: 'Computer Organization',
+      description: 'A presentation that provides an overview of computer organization, covering topics such as computer hardware, compiler, and system architecture.',
+      tech: [],
+      type: 'Presentation',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co18.png',
+      link: '/files/ComputerOrganization.pdf',
+      github: null
+    },
+    {
+      title: 'Booting Process of a Computer',
+      description: 'A presentation that explains the step-by-step booting process of a computer, from power-on, BIOS initialization, POST (Power-On Self-Test), to loading the operating system.',
+      tech: [],
+      type: 'Presentation',
+      year: null,
+      category: 'Creative Outputs',
+      image: '/images/co17.png',
+      link: '/files/BootingProcess.pdf',
+      github: null
+    },
+    {
       title: 'Disciplines of Social Sciences Infographic',
       description: 'An infographic that illustrates the various disciplines within the social sciences field, highlighting their key areas of study and contributions to understanding human behavior and society.',
       tech: [],
@@ -334,39 +433,6 @@ export default function Home() {
       category: 'Creative Outputs',
       image: '/images/co9.png',
       link: null,
-      github: null
-    },
-    {
-      title: 'Cape Verde Brochure',
-      description: 'A travel brochure that highlights the attractions, culture, and experiences of Cape Verde, designed to entice travelers to visit this beautiful island nation.',
-      tech: [],
-      type: 'Graphic Design',
-      year: null,
-      category: 'Creative Outputs',
-      image: '/images/co14.png',
-      link: null,
-      github: null
-    },
-    {
-      title: 'How to Invest in the Stock Market',
-      description: 'A presentation that provides an overview of the stock market, investment strategies, and tips for beginners looking to start investing.',
-      tech: [],
-      type: 'Presentation',
-      year: null,
-      category: 'Creative Outputs',
-      image: '/images/co13.png',
-      link: '/files/HowToInvestInTheStockMarket.pdf',
-      github: null
-    },
-    {
-      title: 'Shadows of Suppression: Martial Law Unveiled',
-      description: 'A Wakelet collection that explores the historical context, key events, and lasting impact of Martial Law in the Philippines, shedding light on its effects on society, governance, and human rights.',
-      tech: [],
-      type: 'Presentation',
-      year: null,
-      category: 'Creative Outputs',
-      image: '/images/co16.png',
-      link: 'https://wakelet.com/wake/36E8T4T8x-0-eC-UEzelu',
       github: null
     }
   ];
