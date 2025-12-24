@@ -476,7 +476,7 @@ export default function Home() {
     university: 'De La Salle University – Dasmariñas',
     graduation: 'June 2026',
     gpa: '3.89/4.00',
-    honors: ['Consistent Dean\'s Lister', 'Academic Scholarship', 'Municipality Scholarship', 'District Scholarship', 'Student Financial Aid Grant'],
+    honors: ['Consistent Dean\'s Lister', 'Academic Scholarship', 'Municipality Scholarship', 'District Scholarship', 'Student Financial Aid Grant', 'DOLE Special Program for Employment of Students (SPES) Beneficiary'],
     achievement: 'Developed an online request approval and management system adopted by Strategic Communications Office'
   };
 
