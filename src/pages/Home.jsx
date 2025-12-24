@@ -439,34 +439,34 @@ export default function Home() {
 
   const awards = [
     {
-      title: 'Lider ng Taon',
-      event: 'Luntiang Parangal',
+      title: 'Lider ng Taon (Leader of the Year)',
+      event: 'Luntiang Parangal (Green Honors)',
       year: '2025',
-      description: 'Received for exceptional leadership in the university'
+      description: 'Received for exceptional leadership in the university among all student leaders. Luntiang Parangal is an annual recognition event that honors students, athletes, writers, artists, and student organizations for their outstanding leadership, teamwork, and solidarity.'
     },
     {
-      title: 'Opisyal ng Taon',
-      event: 'Luntiang Parangal',
+      title: 'Opisyal ng Taon (Officer of the Year)',
+      event: 'Luntiang Parangal (Green Honors)',
       year: '2025',
-      description: 'Awarded for outstanding performance as student officer'
+      description: 'Awarded for outstanding performance as student officer. Luntiang Parangal celebrates those who have made significant contributions to the university and provided exceptional service to the community.'
     },
     {
       title: 'Best Project Head',
       event: 'CSO-RSO Night of Stars and Honors',
       year: '2025',
-      description: 'Recognized for successful institutional events and initiatives'
+      description: 'Recognized for successful institutional events and initiatives at the Council of Student Organizations.'
     },
     {
       title: 'Outstanding Monitoring Executive Board',
       event: 'CSO-RSO Night of Stars and Honors',
       year: '2025',
-      description: 'Excelled in oversight and support of student organizations'
+      description: 'Excelled in oversight and support of student organizations at the Council of Student Organizations.'
     },
     {
       title: 'Excellence in Leadership',
-      event: 'Gawad Agham',
+      event: 'Gawad Agham (Science Awards)',
       year: '2024',
-      description: 'Honored for exemplary leadership in college student government'
+      description: 'Honored for exemplary leadership in college student government.'
     }
   ];
 
