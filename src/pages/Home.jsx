@@ -482,6 +482,12 @@ export default function Home() {
 
   const certifications = [
     {
+      title: 'Endpoint Security',
+      org: 'Cisco Networking Academy',
+      year: '2025',
+      icon: '🛡️'
+    },
+    {
       title: 'Cyber Threat Management',
       org: 'Cisco Networking Academy',
       year: '2025',
