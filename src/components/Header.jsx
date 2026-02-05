@@ -114,12 +114,12 @@ const Header = () => {
             );
           } else {
             return (
-              <a
+              <button
                 {...commonProps}
-                href="#"
+                type="button"
               >
                 {link.icon}
-              </a>
+              </button>
             );
           }
         })}

@@ -190,7 +190,7 @@ export default function Home() {
       observer.disconnect();
       clearTimeout(timeout);
     };
-  }, []);
+  }, [nameLoaded]);
 
   // Tech stack with logo URLs (ordered and expanded)
   const techStack = [
@@ -1195,7 +1195,7 @@ export default function Home() {
         <div className="max-w-5xl w-full mx-auto">
           {/* Location tag */}
           <div className={`mb-6 opacity-0 ${heroTextVisible ? 'slide-up stagger-1' : ''}`}>
-            <span className="text-pink-400/80 text-sm font-mono tracking-widest">// Cavite, Philippines</span>
+            <span className="text-pink-400/80 text-sm font-mono tracking-widest">{'// Cavite, Philippines'}</span>
           </div>
           
           {/* Main name with gradient */}
@@ -1678,7 +1678,7 @@ export default function Home() {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {[1,2,3,4].map((num) => (
                 <div key={num} className="aspect-[3/4] bg-slate-900/50 border-2 border-dashed border-pink-400/30 rounded-2xl flex items-center justify-center relative overflow-hidden">
-                  <img src={`/images/moment${num}.jpg`} alt={`Photo ${num}`} className="w-full h-full object-cover" />
+                  <img src={`/images/moment${num}.jpg`} alt={`Moment ${num}`} className="w-full h-full object-cover" />
                 </div>
               ))}
             </div>
