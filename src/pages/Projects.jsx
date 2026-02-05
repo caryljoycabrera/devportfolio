@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, ExternalLink, Linkedin, Mail, ArrowRight, Camera, X, ZoomIn, Sparkles } from 'lucide-react';
+import { Github, ExternalLink, Linkedin, Mail, ArrowRight, X, ZoomIn, Sparkles } from 'lucide-react';
 
 export default function Projects() {
   const isLightMode = (() => {
