@@ -1388,7 +1388,7 @@ export default function Home() {
             {techStack.map((tech, idx) => (
               <div 
                 key={idx} 
-                className="tech-icon group relative flex flex-col items-center gap-2 p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-pink-500/30 cursor-default"
+                className="tech-icon group relative flex flex-col items-center gap-2 p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blue-500/30 cursor-default"
               >
                 <img 
                   src={tech.icon} 
