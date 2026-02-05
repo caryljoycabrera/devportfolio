@@ -1,6 +1,6 @@
 // src/pages/Home.js
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, Sparkles, Heart, Zap, Trophy, Star, ArrowRight, Camera, GraduationCap, X, ZoomIn } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code, Sparkles, Heart, Zap, Trophy, Star, ArrowRight, GraduationCap, X, ZoomIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -81,7 +81,7 @@ export default function Home() {
   const particlesRef = useRef([]);
   const rippleIdRef = useRef(0);
   
-  const tagline = "Aspiring IT Project Coordinator and Operations Analyst";
+  const tagline = "Aspiring IT Project Manager and Compliance Analyst";
 
   // Generate stable particle positions on mount (increased to 24 dots)
   useEffect(() => {
@@ -452,13 +452,13 @@ export default function Home() {
     },
     {
       title: 'Best Project Head',
-      event: 'CSO-RSO Night of Stars and Honors',
+      event: 'Luminaries: CSO-RSO Night of Stars and Honors',
       year: '2025',
       description: 'Recognized for successful institutional events and initiatives at the Council of Student Organizations.'
     },
     {
       title: 'Outstanding Monitoring Executive Board',
-      event: 'CSO-RSO Night of Stars and Honors',
+      event: 'Luminaries: CSO-RSO Night of Stars and Honors',
       year: '2025',
       description: 'Excelled in oversight and support of student organizations at the Council of Student Organizations.'
     },
@@ -521,30 +521,30 @@ export default function Home() {
 
   const workExperience = [
     {
+      role: 'IT Compliance Intern',
+      company: 'Anchored Solutions MNL Inc',
+      type: 'Internship | Remote',
+      period: '2026 - Present',
+      description: 'Supporting the team in ensuring organizational adherence to information security standards through the coordination of ISO27001 initiatives, risk assessments, and vulnerability monitoring campaigns'
+    },
+    {
       role: 'Virtual Assistant',
       company: 'Freelance (Local & International Clients)',
       type: 'Part-Time | Hourly & Project-Based | Remote',
-      period: '2022-2025',
+      period: '2022 - 2025',
       description: 'Delivered project management, content creation, and tutoring services, driving client performance and revenue growth through community engagement strategies'
     },
     {
       role: 'Student Assistant',
       company: 'Scholarship Duty',
       type: 'Fixed Hours | On-Site',
-      period: '2022-2024',
-      description: 'Provided secretarial and technical support, enhancing office operations through efficient data management and communication'
-    },
-    {
-      role: 'Administrative Analyst',
-      company: 'HVAC Company',
-      type: 'Part-Time | Hybrid',
-      period: '2022-2023',
-      description: 'Executed administrative and marketing tasks, enhancing operational efficiency through strategic planning, record-keeping, and customer service'
+      period: '2022 - 2024',
+      description: 'Provided administrative and technical support, enhancing office operations through efficient data management and communication'
     }
   ];
 
   const values = [
-    { word: 'Passionate', description: 'Every decision serves a purpose' },
+    { word: 'Strategic', description: 'Every decision serves a purpose' },
     { word: 'Persevering', description: 'Difficulties are opportunities' },
     { word: 'Genuine', description: 'True to my voice and values' },
   ];
@@ -1217,12 +1217,7 @@ export default function Home() {
 
           {/* Description with personality */}
           <div className={`text-base sm:text-lg md:text-xl text-slate-400 mb-8 max-w-2xl leading-relaxed opacity-0 ${heroTextVisible ? 'slide-up stagger-4' : ''}`}> 
-            Fourth-year IT student{' '}
-            <span className="text-pink-400 font-medium">driven by craft</span> with thoughtful execution.
-            <br />
-            <span className="text-purple-400">Inquisitive.</span>{' '}
-            <span className="text-blue-400">Proactive.</span>{' '}
-            <span className="text-pink-400">Lionhearted.</span>
+            Fourth-year IT student applying technical precision with thoughtful execution.
           </div>
 
           {/* Value pills */}
@@ -1245,7 +1240,7 @@ export default function Home() {
               <a href="mailto:caryldcabrera@gmail.com" 
                  className="group px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 rounded-lg transition-all duration-300 font-medium flex items-center gap-2 shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 w-full sm:w-auto keep-white-text">
                 <Mail size={18} />
-                Tell me your story
+                Let's Connect
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <div className="flex flex-row gap-2 w-full sm:w-auto">
@@ -1271,7 +1266,7 @@ export default function Home() {
           <div className={`flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm text-slate-500 opacity-0 ${heroTextVisible ? 'fade-in' : ''}`} style={{ animationDelay: '0.8s' }}>
             <div className="flex items-center gap-2 hover:text-pink-400 transition-colors">
               <Sparkles size={16} className="text-pink-400" />
-              <span>Freelancer</span>
+              <span>GRC Specialist</span>
             </div>
             <div className="flex items-center gap-2 hover:text-purple-400 transition-colors">
               <Heart size={16} className="text-purple-400" />
@@ -1311,18 +1306,13 @@ export default function Home() {
             {/* About content (center/right) */}
             <div className="md:col-span-2 space-y-4 text-slate-300 leading-relaxed">
               <p className="text-lg">
-                I'm finishing my Bachelor's degree in IT at <span className="text-pink-400">De La Salle University – Dasmariñas</span>, 
-                specializing in web development. But that title doesn't capture it all.
+                I started my journey writing code, and I found my strength in orchestrating the <span className="text-pink-400">systems</span> that make code reliable. Currently, I am refining this craft as an <span className="text-pink-400">intern at Anchored Solutions</span>.
               </p>
               <p>
-                I develop outputs that make an impact. I led student groups that delivered results.
-                I balanced freelance work with academics and extra-curricular activities while being a <span className="text-purple-400 font-semibold">student assistant</span> and <span className="text-purple-400 font-semibold">class representative</span>.
-                I wore multiple hats, and I thrived.
+                I drive initiatives that generate tangible efficiency, <span className="text-purple-400 font-semibold">ensuring that true results are built on a foundation of security and discipline.</span> I led student groups that delivered measurable success. I balanced freelance work with academics and extra-curricular activities while being a <span className="text-purple-400 font-semibold">student assistant</span> and <span className="text-purple-400 font-semibold">class representative</span>. I wore multiple hats, and I thrived.
               </p>
               <p>
-                Beyond technical skills, I bring <span className="text-blue-400 font-semibold">perspective</span> and <span className="text-blue-400 font-semibold">connection</span> to the table.
-                Whether working with clients, leading teams, or engaging with users, I prioritize understanding needs and providing value.
-                I'm not just building projects; I'm building relationships.
+                Beyond technical skills, I bring <span className="text-blue-400 font-semibold">governance</span> and <span className="text-blue-400 font-semibold">systemic oversight</span> to the table. Whether auditing processes, streamlining workflows, or engaging with stakeholders, I prioritize understanding needs and mitigating risk. I don't just drive progress; I cultivate <span className="text-blue-400 font-semibold">trust</span> and <span className="text-blue-400 font-semibold">operational resilience</span>.
               </p>
               {/* Quick facts grid (below about content) */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6">
@@ -1339,8 +1329,8 @@ export default function Home() {
                   <p className="text-slate-200 font-medium">C1 (TOEIC)</p>
                 </div>
                 <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-blue-500/30 transition-all">
-                  <span className="text-slate-500 text-xs uppercase tracking-wider">Availability</span>
-                  <p className="text-blue-400 font-medium">Open to opportunities</p>
+                  <span className="text-slate-500 text-xs uppercase tracking-wider">Current Status</span>
+                  <p className="text-blue-400 font-medium">IT Compliance Intern</p>
                 </div>
               </div>
             </div>
@@ -1359,6 +1349,39 @@ export default function Home() {
           <p className="text-slate-400 mb-12 max-w-2xl">
             A diverse kit of skills, tools, and technologies that I leverage to bring ideas to life.
           </p>
+          
+          {/* Category breakdown */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-pink-500/30 transition-all">
+              <h3 className="text-pink-400 font-semibold mb-3 flex items-center gap-2">
+                <Code size={18} />
+                Technical Philosophy
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['Security-First Design', 'Agile & SDLC', 'Maintainability', 'User-Centricity', 'Data Integrity'].map(item => (
+                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-purple-500/30 transition-all">
+              <h3 className="text-purple-400 font-semibold mb-3 flex items-center gap-2">
+                <Sparkles size={18} />
+                Management Competencies
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['IT Governance & Compliance', 'Project Management', 'Technical & Policy Documentation', 'Stakeholder Management', 'Cross-Functional Leadership', 'Operational Efficiency', 'Events, Logistics, and Marketing'].map(item => (
+                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <br></br>
 
           {/* Tech icons grid */}
           <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3 sm:gap-4 mb-8 sm:mb-12">
@@ -1378,36 +1401,81 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Category breakdown */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-pink-500/30 transition-all">
-              <h3 className="text-pink-400 font-semibold mb-3 flex items-center gap-2">
-                <Code size={18} />
-                Development Philosophy
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['OOP', 'MVC Architecture', 'REST APIs', 'CRUD', 'Agile', 'SDLC', 'Clean Code', 'Version Control'].map(item => (
-                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
+      {/* Work Experience Section */}
+      <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 relative">
+        <div className={`max-w-5xl mx-auto ${sectionClass('experience')}`}> 
+          <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
+            <span className="text-pink-400 font-mono text-lg">03.</span>
+            <span>Experience</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
+          </h2>
+
+          {/* Timeline style experience */}
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-pink-500 via-purple-500 to-blue-500 hidden md:block" />
             
-            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-purple-500/30 transition-all">
-              <h3 className="text-purple-400 font-semibold mb-3 flex items-center gap-2">
-                <Sparkles size={18} />
-                Beyond the Code
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['UI/UX Design', 'Technical Writing', 'Project Management', 'Team Leadership', 'Client Communication', 'Stakeholder Coordination', 'Cross-Functional Collaboration', 'Events, Logistics, and Marketing'].map(item => (
-                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
+            <div className="space-y-6 sm:space-y-8">
+              {workExperience.map((exp, idx) => (
+                <div key={idx} className="relative md:pl-20">
+                  {/* Timeline dot */}
+                  <div className="absolute left-6 w-4 h-4 bg-pink-500 rounded-full border-4 border-slate-950 hidden md:block" style={{ top: '28px' }} />
+                  
+                  <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-purple-500/30 transition-all duration-300">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                      <div>
+                        <h3 className="text-xl font-semibold text-slate-100">{exp.role}</h3>
+                        <p className="text-purple-400">{exp.company}</p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="px-3 py-1 bg-slate-800/50 text-slate-400 rounded-full text-xs">{exp.type}</span>
+                        <span className="text-pink-400 font-mono text-sm whitespace-nowrap">{exp.period}</span>
+                      </div>
+                    </div>
+                    <p className="text-slate-400 leading-relaxed">{exp.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
+            {/* More experiences teaser */}
+            <div className="mt-10 text-center">
+              <p className="text-slate-500 mb-4">Focused on building a full-time career in IT Project Management and Compliance!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="py-16 sm:py-24 px-4 sm:px-6 relative">
+        <div className={`max-w-5xl mx-auto ${sectionClass('certifications')}`}> 
+          <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
+            <span className="text-pink-400 font-mono text-lg">04.</span>
+            <span>Certifications</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {certifications.map((cert, idx) => (
+              <div key={idx} className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-300 hover:-translate-y-1">
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">{cert.icon}</div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start mb-1">
+                      <h3 className="text-lg font-semibold text-slate-100 group-hover:text-blue-400 transition-colors">{cert.title}</h3>
+                      <span className="text-blue-400 font-mono text-sm">{cert.year}</span>
+                    </div>
+                    <p className="text-slate-400 text-sm">{cert.org}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* More certifications teaser */}
+          <div className="mt-10 text-center">
+            <p className="text-slate-500 mb-4">New certifications to be added soon...</p>
           </div>
         </div>
       </section>
@@ -1416,7 +1484,7 @@ export default function Home() {
       <section id="education" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('education')}`}> 
           <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">03.</span>
+            <span className="text-pink-400 font-mono text-lg">05.</span>
             <span>Education</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1463,7 +1531,7 @@ export default function Home() {
       <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('projects')}`}> 
           <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">04.</span>
+            <span className="text-pink-400 font-mono text-lg">06.</span>
             <span>Projects</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1566,43 +1634,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Certifications Section */}
-      <section id="certifications" className="py-16 sm:py-24 px-4 sm:px-6 relative">
-        <div className={`max-w-5xl mx-auto ${sectionClass('certifications')}`}> 
-          <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">05.</span>
-            <span>Certifications</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            {certifications.map((cert, idx) => (
-              <div key={idx} className="group bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-300 hover:-translate-y-1">
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl">{cert.icon}</div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-1">
-                      <h3 className="text-lg font-semibold text-slate-100 group-hover:text-blue-400 transition-colors">{cert.title}</h3>
-                      <span className="text-blue-400 font-mono text-sm">{cert.year}</span>
-                    </div>
-                    <p className="text-slate-400 text-sm">{cert.org}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* More certifications teaser */}
-          <div className="mt-10 text-center">
-            <p className="text-slate-500 mb-4">New certifications to be added soon...</p>
-          </div>
-        </div>
-      </section>
-
       {/* Awards Section */}
       <section id="awards" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('awards')}`}> 
           <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">06.</span>
+            <span className="text-pink-400 font-mono text-lg">07.</span>
             <span>Awards and Recognition</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1647,56 +1683,11 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Work Experience Section */}
-      <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 relative">
-        <div className={`max-w-5xl mx-auto ${sectionClass('experience')}`}> 
-          <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">07.</span>
-            <span>Experience</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
-          </h2>
-
-          {/* Timeline style experience */}
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-pink-500 via-purple-500 to-blue-500 hidden md:block" />
-            
-            <div className="space-y-6 sm:space-y-8">
-              {workExperience.map((exp, idx) => (
-                <div key={idx} className="relative md:pl-20">
-                  {/* Timeline dot */}
-                  <div className="absolute left-6 w-4 h-4 bg-pink-500 rounded-full border-4 border-slate-950 hidden md:block" style={{ top: '28px' }} />
-                  
-                  <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-purple-500/30 transition-all duration-300">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                      <div>
-                        <h3 className="text-xl font-semibold text-slate-100">{exp.role}</h3>
-                        <p className="text-purple-400">{exp.company}</p>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <span className="px-3 py-1 bg-slate-800/50 text-slate-400 rounded-full text-xs">{exp.type}</span>
-                        <span className="text-pink-400 font-mono text-sm whitespace-nowrap">{exp.period}</span>
-                      </div>
-                    </div>
-                    <p className="text-slate-400 leading-relaxed">{exp.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            {/* More experiences teaser */}
-            <div className="mt-10 text-center">
-              <p className="text-slate-500 mb-4">Actively seeking on-the-job training (OJT) opportunities!</p>
-            </div>
-          </div>
-
           {/* Leadership highlight */}
           <div className="mt-8 sm:mt-12 p-4 sm:p-6 bg-gradient-to-r from-pink-900/10 via-purple-900/10 to-blue-900/10 border border-pink-800/30 rounded-xl">
             <h3 className="text-lg font-semibold mb-6 text-pink-400 flex items-center gap-2">
               <Zap size={20} />
-              Leadership Experience Highlights (2021 - 2025)
+              Student Leadership Experience Highlights (2021 - 2026)
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Column 1: CSG and CSO */}
@@ -1819,12 +1810,12 @@ export default function Home() {
           {/* Personal closing statement */}
           <div className="mb-12">
             <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold mb-6">
-              <span className="shimmer-text arsenica-antiqua">Let's Create Something Unforgettable</span>
+        <span className="shimmer-text arsenica-antiqua">Let's Drive Meaningful Impact</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              I'm open to internships, freelance projects, and collaborations. 
-              If you're working on something that needs <span className="text-pink-400">strategy</span>, 
-              <span className="text-purple-400"> creativity</span>, and a <span className="text-blue-400">meaningful approach</span>, I'd love to be part of it.
+              As I approach graduation, I am focused on building a long-term career defined by <span className="text-pink-400">principled governance</span>, 
+              <span className="text-purple-400"> operational integrity</span>, and a <span className="text-blue-400">commitment to security</span>.
+              I am ready for the next step.
             </p>
           </div>
           
