@@ -1338,77 +1338,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tech Stack Section with Logos */}
-      <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 relative">
-        <div className={`max-w-5xl mx-auto ${sectionClass('skills')}`}> 
-          <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">02.</span>
-            <span>What I Work With</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
-          </h2>
-          <p className="text-slate-400 mb-12 max-w-2xl">
-            A diverse kit of skills, tools, and technologies that I leverage to bring ideas to life.
-          </p>
-          
-          {/* Category breakdown */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-pink-500/30 transition-all">
-              <h3 className="text-pink-400 font-semibold mb-3 flex items-center gap-2">
-                <Code size={18} />
-                Technical Philosophy
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['Security-First Design', 'Agile & SDLC', 'Maintainability', 'User-Centricity', 'Data Integrity'].map(item => (
-                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-            
-            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-purple-500/30 transition-all">
-              <h3 className="text-purple-400 font-semibold mb-3 flex items-center gap-2">
-                <Sparkles size={18} />
-                Management Competencies
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['IT Governance & Compliance', 'Project Management', 'Technical & Policy Documentation', 'Stakeholder Management', 'Cross-Functional Leadership', 'Operational Efficiency', 'Events, Logistics, and Marketing'].map(item => (
-                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <br></br>
-
-          {/* Tech icons grid */}
-          <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3 sm:gap-4 mb-8 sm:mb-12">
-            {techStack.map((tech, idx) => (
-              <div 
-                key={idx} 
-                className="tech-icon group relative flex flex-col items-center gap-2 p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blue-500/30 cursor-default"
-              >
-                <img 
-                  src={tech.icon} 
-                  alt={tech.name}
-                  className={`w-10 h-10 ${tech.invert ? 'invert' : ''}`}
-                />
-                <span className="text-xs text-slate-400 group-hover:text-slate-200 transition-colors text-center">
-                  {tech.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Work Experience Section */}
       <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('experience')}`}> 
           <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">03.</span>
+            <span className="text-pink-400 font-mono text-lg">02.</span>
             <span>Experience</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1452,7 +1386,7 @@ export default function Home() {
       <section id="certifications" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('certifications')}`}> 
           <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">04.</span>
+            <span className="text-pink-400 font-mono text-lg">03.</span>
             <span>Certifications</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1484,7 +1418,7 @@ export default function Home() {
       <section id="education" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('education')}`}> 
           <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">05.</span>
+            <span className="text-pink-400 font-mono text-lg">04.</span>
             <span>Education</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1531,7 +1465,7 @@ export default function Home() {
       <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('projects')}`}> 
           <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">06.</span>
+            <span className="text-pink-400 font-mono text-lg">05.</span>
             <span>Projects</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1638,7 +1572,7 @@ export default function Home() {
       <section id="awards" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('awards')}`}> 
           <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">07.</span>
+            <span className="text-pink-400 font-mono text-lg">06.</span>
             <span>Awards and Recognition</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1804,6 +1738,72 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Tech Stack Section with Logos */}
+      <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 relative">
+        <div className={`max-w-5xl mx-auto ${sectionClass('skills')}`}> 
+          <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
+            <span className="text-pink-400 font-mono text-lg">07.</span>
+            <span>What I Work With</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
+          </h2>
+          <p className="text-slate-400 mb-12 max-w-2xl">
+            A diverse kit of skills, tools, and technologies that I leverage to bring ideas to life.
+          </p>
+          
+          {/* Category breakdown */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-pink-500/30 transition-all">
+              <h3 className="text-pink-400 font-semibold mb-3 flex items-center gap-2">
+                <Code size={18} />
+                Technical Philosophy
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['Security-First Design', 'Agile & SDLC', 'Maintainability', 'User-Centricity', 'Data Integrity'].map(item => (
+                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-purple-500/30 transition-all">
+              <h3 className="text-purple-400 font-semibold mb-3 flex items-center gap-2">
+                <Sparkles size={18} />
+                Management Competencies
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['IT Governance & Compliance', 'Project Management', 'Technical & Policy Documentation', 'Stakeholder Management', 'Cross-Functional Leadership', 'Operational Efficiency', 'Events, Logistics, and Marketing'].map(item => (
+                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <br></br>
+
+          {/* Tech icons grid */}
+          <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3 sm:gap-4 mb-8 sm:mb-12">
+            {techStack.map((tech, idx) => (
+              <div 
+                key={idx} 
+                className="tech-icon group relative flex flex-col items-center gap-2 p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blue-500/30 cursor-default"
+              >
+                <img 
+                  src={tech.icon} 
+                  alt={tech.name}
+                  className={`w-10 h-10 ${tech.invert ? 'invert' : ''}`}
+                />
+                <span className="text-xs text-slate-400 group-hover:text-slate-200 transition-colors text-center">
+                  {tech.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    
       {/* Contact / Footer Section */}
       <footer id="contact" className="py-16 sm:py-24 px-4 sm:px-6 border-t border-slate-900 relative">
         <div className="max-w-4xl mx-auto text-center">
