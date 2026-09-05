@@ -81,7 +81,7 @@ export default function Home() {
   const particlesRef = useRef([]);
   const rippleIdRef = useRef(0);
   
-  const tagline = "Aspiring IT Project Manager and Compliance Analyst";
+  const tagline = "Aspiring IT SecOps Engineer and Project Manager";
 
   // Generate stable particle positions on mount (increased to 24 dots)
   useEffect(() => {
@@ -194,6 +194,18 @@ export default function Home() {
 
   // Tech stack with logo URLs (ordered and expanded)
   const techStack = [
+    { name: 'Netskope', icon: '/images/netskope.svg' },
+    { name: 'CrowdStrike', icon: 'https://www.google.com/s2/favicons?domain=crowdstrike.com&sz=128' },
+    { name: 'Microsoft 365 Admin', icon: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
+    { name: 'Microsoft Entra', icon: 'https://cdn.worldvectorlogo.com/logos/microsoft-entra-id-1.svg' },
+    { name: 'Microsoft Defender', icon: 'https://commons.wikimedia.org/wiki/Special:FilePath/Windows-defender.svg' },
+    { name: 'Microsoft Exchange', icon: 'https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft_Exchange_(2019-present).svg' },
+    { name: 'Microsoft Intune', icon: 'https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft-intune.svg' },
+    { name: 'Microsoft Azure', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg' },
+    { name: 'ManageEngine', icon: 'https://www.google.com/s2/favicons?domain=manageengine.com&sz=128' },
+    { name: 'KnowBe4', icon: 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/knowbe4/default.svg' },
+    { name: 'ClickUp', icon: 'https://svgl.app/library/clickup.svg' },
+    { name: 'Zapier', icon: 'https://www.google.com/s2/favicons?domain=zapier.com&sz=128' },
     { name: 'Microsoft 365', icon: '/images/microsoft365.svg' },
     { name: 'Google Workspace', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg' },
     { name: 'Meta Business Suite', icon: 'https://cdn.simpleicons.org/meta' },
@@ -202,6 +214,8 @@ export default function Home() {
     { name: 'Wix', icon: 'https://cdn.simpleicons.org/wix' },
     { name: 'WordPress', icon: 'https://cdn.simpleicons.org/wordpress' },
     { name: 'Notion', icon: 'https://cdn.simpleicons.org/notion', invert: true },
+    { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+    { name: 'Google Apps Script', icon: '/images/appsscript.svg' },
     { name: 'QuickBooks', icon: 'https://cdn.simpleicons.org/quickbooks' },
     { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
     { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
@@ -219,21 +233,15 @@ export default function Home() {
     { name: 'Dart', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg' },
     { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
     { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-    { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-    { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'Firebase', icon: 'https://cdn.simpleicons.org/firebase' },
     { name: 'Sass', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg' },
+    { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
     { name: 'Visual Studio Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
     { name: 'Visual Studio', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg' },
-    { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
     { name: 'Android Studio', icon: '/images/androidstudio.svg' },
     { name: 'Apache NetBeans', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netbeans/netbeans-original.svg' },
     { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', invert: true },
-    { name: 'Oracle VirtualBox', icon: 'https://cdn.simpleicons.org/virtualbox' },
-    { name: 'Google Apps Script', icon: '/images/appsscript.svg' },
-    { name: 'Firebase', icon: 'https://cdn.simpleicons.org/firebase' },
-    { name: 'SAP S/4 HANA', icon: 'https://cdn.simpleicons.org/sap' },
-    { name: 'Kubernetes', icon: 'https://cdn.simpleicons.org/kubernetes' },
-    { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker' }
   ];
 
   const projects = [
@@ -439,6 +447,30 @@ export default function Home() {
 
   const awards = [
     {
+      title: 'Summa Cum Laude',
+      event: 'Graduation',
+      year: '2026',
+      description: ''
+    },
+    {
+      title: 'Golden Pin Award',
+      event: 'Graduation',
+      year: '2026',
+      description: ''
+    },
+    {
+      title: 'Pinakamahusay na Opisyal ng Taon para sa Pamahalaang Pangmag-aaral ng Kolehiyo (Best Officer of the Year for College Student Government',
+      event: 'Luntiang Parangal (Green Honors)',
+      year: '2026',
+      description: ''
+    },
+    {
+      title: 'Opisyal ng Taon para sa Pamahalaang Pangmag-aaral ng CICS (Officer of the Year for CICS Student Government',
+      event: 'Luntiang Parangal (Green Honors)',
+      year: '2026',
+      description: ''
+    },
+    {
       title: 'Lider ng Taon (Leader of the Year)',
       event: 'Luntiang Parangal (Green Honors)',
       year: '2025',
@@ -474,13 +506,31 @@ export default function Home() {
     degree: 'Bachelor of Science in Information Technology',
     specialization: 'Web Development',
     university: 'De La Salle University – Dasmariñas',
-    graduation: 'June 2026',
-    gpa: '3.89/4.00',
-    honors: ['Consistent Dean\'s Lister', 'Academic Scholarship', 'Municipality Scholarship', 'District Scholarship', 'Student Financial Aid Grant', 'DOLE Special Program for Employment of Students (SPES) Beneficiary'],
+    graduation: 'August 2026',
+    gpa: '3.88/4.00',
+    honors: ['Summa Cum Laude', 'Academic Scholarship', 'Municipality Scholarship', 'District Scholarship', 'Student Financial Aid Grant', 'DOLE Special Program for Employment of Students (SPES) Beneficiary'],
     achievement: 'Developed an online request approval and management system adopted by Strategic Communications Office'
   };
 
   const certifications = [
+    {
+      title: 'Networking Devices and Initial Configuration',
+      org: 'Cisco Networking Academy',
+      year: '2026',
+      icon: '💻'
+    },
+    {
+      title: 'Networking Basics',
+      org: 'Cisco Networking Academy',
+      year: '2026',
+      icon: '🛜'
+    },
+    {
+      title: 'Global English (CEFR C1 Equivalent)',
+      org: 'TOEIC',
+      year: '2026',
+      icon: '🌐'
+    },
     {
       title: 'Endpoint Security',
       org: 'Cisco Networking Academy',
@@ -506,12 +556,6 @@ export default function Home() {
       icon: '🔐'
     },
     {
-      title: 'Global English (Score: 980 | CEFR C1 Equivalent)',
-      org: 'TOEIC',
-      year: '2024',
-      icon: '🌐'
-    },
-    {
       title: 'PCAP: Programming Essentials in Python',
       org: 'OpenEDG',
       year: '2023',
@@ -521,11 +565,18 @@ export default function Home() {
 
   const workExperience = [
     {
+      role: 'IT Security and Operations Analyst',
+      company: 'Anchored Solutions MNL Inc',
+      type: 'Full-Time | Remote',
+      period: 'June 2026 - Present',
+      description: 'Assisting in security monitoring and triage, incident response activities, managing endpoint and user devices, identity and access management, IT service desk and help desk, change management, and IT projects'
+    },
+    {
       role: 'IT Compliance Intern',
       company: 'Anchored Solutions MNL Inc',
-      type: 'Internship | Remote',
-      period: '2026 - Present',
-      description: 'Supporting the team in ensuring organizational adherence to information security standards through the coordination of ISO27001 initiatives, risk assessments, and vulnerability monitoring campaigns'
+      type: 'Internship | Full-Time | Remote',
+      period: 'Feb 2026 - May 2026',
+      description: 'Supported the team in ensuring organizational adherence to information security standards through the coordination of ISO27001 initiatives, risk assessments, and vulnerability monitoring campaigns'
     },
     {
       role: 'Virtual Assistant',
@@ -1217,7 +1268,7 @@ export default function Home() {
 
           {/* Description with personality */}
           <div className={`text-base sm:text-lg md:text-xl text-slate-400 mb-8 max-w-2xl leading-relaxed opacity-0 ${heroTextVisible ? 'slide-up stagger-4' : ''}`}> 
-            Fourth-year IT student applying technical precision with thoughtful execution.
+            IT cybersecurity professional applying technical precision with thoughtful execution.
           </div>
 
           {/* Value pills */}
@@ -1266,7 +1317,7 @@ export default function Home() {
           <div className={`flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm text-slate-500 opacity-0 ${heroTextVisible ? 'fade-in' : ''}`} style={{ animationDelay: '0.8s' }}>
             <div className="flex items-center gap-2 hover:text-pink-400 transition-colors">
               <Sparkles size={16} className="text-pink-400" />
-              <span>GRC Specialist</span>
+              <span>SOC Specialist</span>
             </div>
             <div className="flex items-center gap-2 hover:text-purple-400 transition-colors">
               <Heart size={16} className="text-purple-400" />
@@ -1306,7 +1357,7 @@ export default function Home() {
             {/* About content (center/right) */}
             <div className="md:col-span-2 space-y-4 text-slate-300 leading-relaxed">
               <p className="text-lg">
-                I started my journey writing code, and I found my strength in orchestrating the <span className="text-pink-400">systems</span> that make code reliable. Currently, I am refining this craft as an <span className="text-pink-400">intern at Anchored Solutions</span>.
+                I started my journey writing code, and I found my strength in orchestrating the <span className="text-pink-400">systems</span> that make code reliable. Currently, I am refining this craft as an <span className="text-pink-400">analyst at Anchored Solutions</span>.
               </p>
               <p>
                 I drive initiatives that generate tangible efficiency, <span className="text-purple-400 font-semibold">ensuring that true results are built on a foundation of security and discipline.</span> I led student groups that delivered measurable success. I balanced freelance work with academics and extra-curricular activities while being a <span className="text-purple-400 font-semibold">student assistant</span> and <span className="text-purple-400 font-semibold">class representative</span>. I wore multiple hats, and I thrived.
@@ -1322,7 +1373,7 @@ export default function Home() {
                 </div>
                 <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-purple-500/30 transition-all">
                   <span className="text-slate-500 text-xs uppercase tracking-wider">Graduation</span>
-                  <p className="text-slate-200 font-medium">June 2026</p>
+                  <p className="text-slate-200 font-medium">August 2026</p>
                 </div>
                 <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-blue-500/30 transition-all">
                   <span className="text-slate-500 text-xs uppercase tracking-wider">English Level</span>
@@ -1330,7 +1381,7 @@ export default function Home() {
                 </div>
                 <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-blue-500/30 transition-all">
                   <span className="text-slate-500 text-xs uppercase tracking-wider">Current Status</span>
-                  <p className="text-blue-400 font-medium">IT Compliance Intern</p>
+                  <p className="text-blue-400 font-medium">IT Security and Operations Analyst</p>
                 </div>
               </div>
             </div>
@@ -1376,7 +1427,7 @@ export default function Home() {
             </div>
             {/* More experiences teaser */}
             <div className="mt-10 text-center">
-              <p className="text-slate-500 mb-4">Focused on building a full-time career in IT Project Management and Compliance!</p>
+              <p className="text-slate-500 mb-4">Focused on IT Project Management and Security Operations!</p>
             </div>
           </div>
         </div>
@@ -1414,11 +1465,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Tech Stack Section with Logos */}
+      <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 relative">
+        <div className={`max-w-5xl mx-auto ${sectionClass('skills')}`}> 
+          <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
+            <span className="text-pink-400 font-mono text-lg">04.</span>
+            <span>What I Work With</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
+          </h2>
+          <p className="text-slate-400 mb-12 max-w-2xl">
+            A diverse kit of skills, tools, and technologies that I leverage to bring ideas to life.
+          </p>
+          
+          {/* Category breakdown */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-pink-500/30 transition-all">
+              <h3 className="text-pink-400 font-semibold mb-3 flex items-center gap-2">
+                <Code size={18} />
+                Technical Philosophy
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['Security-First Design', 'Agile & SDLC', 'Maintainability', 'User-Centricity', 'Data Integrity'].map(item => (
+                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-purple-500/30 transition-all">
+              <h3 className="text-purple-400 font-semibold mb-3 flex items-center gap-2">
+                <Sparkles size={18} />
+                Management Competencies
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['IT SecOps and GRC', 'Project Management', 'Technical & Policy Documentation', 'Stakeholder Management', 'Cross-Functional Leadership', 'Operational Efficiency', 'Events, Logistics, and Marketing'].map(item => (
+                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <br></br>
+
+          {/* Tech icons grid */}
+          <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3 sm:gap-4 mb-8 sm:mb-12">
+            {techStack.map((tech, idx) => (
+              <div 
+                key={idx} 
+                className="tech-icon group relative flex flex-col items-center gap-2 p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blue-500/30 cursor-default"
+              >
+                <img 
+                  src={tech.icon} 
+                  alt={tech.name}
+                  className={`w-10 h-10 ${tech.invert ? 'invert' : ''}`}
+                />
+                <span className="text-xs text-slate-400 group-hover:text-slate-200 transition-colors text-center">
+                  {tech.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Education Section */}
       <section id="education" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('education')}`}> 
           <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">04.</span>
+            <span className="text-pink-400 font-mono text-lg">05.</span>
             <span>Education</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1435,7 +1552,7 @@ export default function Home() {
               </div>
               <div className="text-left md:text-right">
                 <p className="text-2xl font-bold text-pink-400">GPA: {education.gpa}</p>
-                <p className="text-slate-500 text-sm">Expected {education.graduation}</p>
+                <p className="text-slate-500 text-sm">Graduated {education.graduation}</p>
               </div>
             </div>
 
@@ -1465,7 +1582,7 @@ export default function Home() {
       <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('projects')}`}> 
           <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">05.</span>
+            <span className="text-pink-400 font-mono text-lg">06.</span>
             <span>Projects</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1572,7 +1689,7 @@ export default function Home() {
       <section id="awards" className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className={`max-w-5xl mx-auto ${sectionClass('awards')}`}> 
           <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">06.</span>
+            <span className="text-pink-400 font-mono text-lg">07.</span>
             <span>Awards and Recognition</span>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
           </h2>
@@ -1737,72 +1854,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Tech Stack Section with Logos */}
-      <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 relative">
-        <div className={`max-w-5xl mx-auto ${sectionClass('skills')}`}> 
-          <h2 className="text-4xl font-bold mb-4 flex items-center gap-3">
-            <span className="text-pink-400 font-mono text-lg">07.</span>
-            <span>What I Work With</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-slate-800 to-transparent ml-4" />
-          </h2>
-          <p className="text-slate-400 mb-12 max-w-2xl">
-            A diverse kit of skills, tools, and technologies that I leverage to bring ideas to life.
-          </p>
-          
-          {/* Category breakdown */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-pink-500/30 transition-all">
-              <h3 className="text-pink-400 font-semibold mb-3 flex items-center gap-2">
-                <Code size={18} />
-                Technical Philosophy
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['Security-First Design', 'Agile & SDLC', 'Maintainability', 'User-Centricity', 'Data Integrity'].map(item => (
-                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-            
-            <div className="p-6 bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl hover:border-purple-500/30 transition-all">
-              <h3 className="text-purple-400 font-semibold mb-3 flex items-center gap-2">
-                <Sparkles size={18} />
-                Management Competencies
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['IT Governance & Compliance', 'Project Management', 'Technical & Policy Documentation', 'Stakeholder Management', 'Cross-Functional Leadership', 'Operational Efficiency', 'Events, Logistics, and Marketing'].map(item => (
-                  <span key={item} className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <br></br>
-
-          {/* Tech icons grid */}
-          <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3 sm:gap-4 mb-8 sm:mb-12">
-            {techStack.map((tech, idx) => (
-              <div 
-                key={idx} 
-                className="tech-icon group relative flex flex-col items-center gap-2 p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blue-500/30 cursor-default"
-              >
-                <img 
-                  src={tech.icon} 
-                  alt={tech.name}
-                  className={`w-10 h-10 ${tech.invert ? 'invert' : ''}`}
-                />
-                <span className="text-xs text-slate-400 group-hover:text-slate-200 transition-colors text-center">
-                  {tech.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     
       {/* Contact / Footer Section */}
       <footer id="contact" className="py-16 sm:py-24 px-4 sm:px-6 border-t border-slate-900 relative">
@@ -1813,9 +1864,9 @@ export default function Home() {
         <span className="shimmer-text arsenica-antiqua">Let's Drive Meaningful Impact</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              As I approach graduation, I am focused on building a long-term career defined by <span className="text-pink-400">principled governance</span>, 
+              I am focused on building a long-term career defined by <span className="text-pink-400">principled governance</span>, 
               <span className="text-purple-400"> operational integrity</span>, and a <span className="text-blue-400">commitment to security</span>.
-              I am ready for the next step.
+              I am ready to further my skills and experience.
             </p>
           </div>
           
