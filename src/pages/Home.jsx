@@ -471,6 +471,12 @@ export default function Home() {
       description: ''
     },
     {
+      title: 'Excellence in Leadership',
+      event: 'Pioneer 2026: The CICS Code of Excellence Awards',
+      year: '2026',
+      description: 'Honored for exemplary leadership in college student government.'
+    },
+    {
       title: 'Lider ng Taon (Leader of the Year)',
       event: 'Luntiang Parangal (Green Honors)',
       year: '2025',
@@ -1357,31 +1363,31 @@ export default function Home() {
             {/* About content (center/right) */}
             <div className="md:col-span-2 space-y-4 text-slate-300 leading-relaxed">
               <p className="text-lg">
-                I started my journey writing code, and I found my strength in orchestrating the <span className="text-pink-400">systems</span> that make code reliable. Currently, I am refining this craft as an <span className="text-pink-400">analyst at Anchored Solutions</span>.
+                I started my journey writing code, and I found my strength in orchestrating the <span className="text-pink-400">systems</span> that make businesses protected and reliable. Currently, I am refining this craft as an <span className="text-pink-400">analyst at Anchored Solutions</span>.
               </p>
               <p>
                 I drive initiatives that generate tangible efficiency, <span className="text-purple-400 font-semibold">ensuring that true results are built on a foundation of security and discipline.</span> I led student groups that delivered measurable success. I balanced freelance work with academics and extra-curricular activities while being a <span className="text-purple-400 font-semibold">student assistant</span> and <span className="text-purple-400 font-semibold">class representative</span>. I wore multiple hats, and I thrived.
               </p>
               <p>
-                Beyond technical skills, I bring <span className="text-blue-400 font-semibold">governance</span> and <span className="text-blue-400 font-semibold">systemic oversight</span> to the table. Whether auditing processes, streamlining workflows, or engaging with stakeholders, I prioritize understanding needs and mitigating risk. I don't just drive progress; I cultivate <span className="text-blue-400 font-semibold">trust</span> and <span className="text-blue-400 font-semibold">operational resilience</span>.
+                Beyond standard IT support, I bring <span className="text-blue-400 font-semibold">security operations expertise</span> and <span className="text-blue-400 font-semibold">proactive threat monitoring</span> to the table. Whether triaging security alerts, automating incident response workflows, or managing endpoint vulnerabilities, I prioritize defending assets and mitigating risk. I don't just resolve issues; I cultivate <span className="text-blue-400 font-semibold">zero-trust environments</span> and <span className="text-blue-400 font-semibold">operational resilience</span>.
               </p>
               {/* Quick facts grid (below about content) */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6">
                 <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-pink-500/30 transition-all">
-                  <span className="text-slate-500 text-xs uppercase tracking-wider">Education</span>
-                  <p className="text-slate-200 font-medium">BSIT - Web Dev</p>
+                  <span className="text-slate-500 text-xs uppercase tracking-wider">Current Status</span>
+                  <p className="text-blue-400 font-medium">IT Security and Operations Analyst</p>
                 </div>
                 <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-purple-500/30 transition-all">
-                  <span className="text-slate-500 text-xs uppercase tracking-wider">Graduation</span>
-                  <p className="text-slate-200 font-medium">August 2026</p>
-                </div>
-                <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-blue-500/30 transition-all">
                   <span className="text-slate-500 text-xs uppercase tracking-wider">English Level</span>
                   <p className="text-slate-200 font-medium">C1 (TOEIC)</p>
                 </div>
                 <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-blue-500/30 transition-all">
-                  <span className="text-slate-500 text-xs uppercase tracking-wider">Current Status</span>
-                  <p className="text-blue-400 font-medium">IT Security and Operations Analyst</p>
+                  <span className="text-slate-500 text-xs uppercase tracking-wider">Previous Experience</span>
+                  <p className="text-slate-200 font-medium">IT Compliance Intern</p>
+                </div>
+                <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-4 hover:border-blue-500/30 transition-all">
+                  <span className="text-slate-500 text-xs uppercase tracking-wider">Education</span>
+                  <p className="text-slate-200 font-medium">BSIT - Web Dev (August 2026)</p>
                 </div>
               </div>
             </div>
